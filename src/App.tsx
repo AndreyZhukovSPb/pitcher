@@ -6,7 +6,6 @@ import { useState } from 'react';
 import './App.css';
 import './components/header/Header.css'
 import Header from './components/header/Header';
-import SellPicture from './components/SellPicture/SellPicture';
 import Carousel, {CarouselItem, CarouselBox} from './components/Carousel/Carousel';
 
 
@@ -22,6 +21,8 @@ function App() {
         />
       </div>
       <CarouselBox/>
+
+
     </>
   );
 }
@@ -39,4 +40,5 @@ export default App;
 что лежит в headerType?
 типизировать useState, useEffect
 переписать carouselProps - для функций
+карусель разнести на несколько компонентов
 */
