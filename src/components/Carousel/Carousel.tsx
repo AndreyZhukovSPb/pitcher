@@ -32,8 +32,6 @@ export const CarouselBox: React.FC<{}> = () => {
     color: string
   }>>(sellPictures);
 
-
-
   return (
     <Carousel>
       {currentSellPictures.map((item) => (
@@ -61,7 +59,7 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
   const [rightButtonIsVisible, setRightButtonIsVisible] = React.useState(true);
 
   useEffect(() => {
-    if (counter === sellPictures.length - 1) {
+    if (counter >= sellPictures.length - 1) {
       console.log('break?')
       return;
     } else {
@@ -117,6 +115,7 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
           className={`carousel__wrapButton carousel__wrapButton_type_next ${!rightButtonIsVisible ? 'carousel__wrapButton_hidden' : ''}`}
           onClick={() => {
             updateIndex(activeIndex + 1)
+            setCounter((counter) => counter = counter +1 )
           }}
         >
           

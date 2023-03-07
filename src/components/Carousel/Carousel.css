@@ -2,11 +2,12 @@
   overflow: hidden;
   color: black;
   position: relative;
+  height: calc(85vh - 80px);
 }
 
 .carousel__item {
   display: inline-flex;
-  height: calc(100vh - 100px);
+  height: 100%;
   position: relative;
   width: 100%;
   position: relative;
@@ -25,6 +26,7 @@
   white-space: nowrap;
   transition: transform 1s;
   position: relative;
+  height: 100%;
 }
 
 
@@ -82,7 +84,7 @@
 .carousel__wrapButton {
   z-index: 2;
   position: absolute;
-  top: calc((100vh - 120px) / 2);
+  top: calc((50% - 35px));
   height: 70px;
   width: 70px;
   border: none;

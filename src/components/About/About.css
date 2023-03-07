@@ -1,0 +1,42 @@
+.about {
+  padding: 50px 50px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: calc(100vh - 447px);
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px dashed blue;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.about_container {
+  border-right: 1px solid rgba(189, 180, 180, 0.843);
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about_container:last-child {
+  border-right: none;
+}
+
+.about_title {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.33;
+  text-align: center;
+}
+
+.about_context {
+  font-size: 18px;
+  line-height: 1.33;
+  text-align: center;
+  margin: 130px 0 0;
+}
+
+/* 
+
+*/

@@ -1,0 +1,87 @@
+.stores {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+.stores__title {
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.33;
+}
+
+.stores__container {
+  padding: 30px 50px 30px 50px;
+  height: 100%;
+}
+
+.stores__grid {
+  margin-top: 20px;
+  display: grid;
+  width: 100%;
+  gap: 10px 30px;
+  grid-template: 
+    "store_1_1 store_1_2 store_2_1 store_2_2 store_2_3" 
+    "legend_1 legend_1 legend_2 legend_2 legend_2" / 1fr 1fr 1fr 1fr 1fr
+}
+
+.box1{
+  grid-area: store_1_1;
+}
+
+.box2{
+  grid-area: store_1_2;
+}
+
+.box3{
+  grid-area: store_2_1;
+}
+
+.box4{
+  grid-area: store_2_2;
+}
+
+.box5{
+  grid-area: store_2_3;
+}
+
+.box6{
+  grid-area: legend_1;
+}
+
+.box7{
+  grid-area: legend_2;
+}
+
+.stores__photo {
+  object-fit: cover;
+  height: 300px;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.store__legend {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33;
+  margin: 0;
+  
+}
+
+
+/* 
+.stores__grid {
+  margin-top: 20px;
+  display: grid;
+  width: 100%;
+  gap: 10px 30px;
+  grid-template-columns: repeat(2, 1fr);   
+  grid-template-rows: repeat(2, auto);  
+  grid-auto-flow: column; 
+}
+*/

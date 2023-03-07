@@ -1,0 +1,11 @@
+
+.contentItem {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.contentItem__type_video {
+  border: none;
+}
+

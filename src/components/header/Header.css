@@ -1,10 +1,10 @@
 .header {
   width: 1140px;
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: black;
+  color: white;
 }
 
 /* @media screen and (max-width: 1279px) {
@@ -24,7 +24,6 @@
 .header__logo{
   cursor: pointer;
   transition: opacity 0.4s linear;
-  height: 70px;
 }
 
 .header__logo:hover{

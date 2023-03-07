@@ -1,7 +1,10 @@
 .page {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-color: #e5e5e5;
+  align-items: center;
+  width: 100%;
+  background-color:rgba(189, 180, 180, 0.3);
   font-family: 'Inter', sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
