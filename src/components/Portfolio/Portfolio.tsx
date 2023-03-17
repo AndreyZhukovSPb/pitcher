@@ -21,7 +21,6 @@ const Portfolio: React.FC<ProfileProps> = () => {
     thumbnail_url?: string
   }>>(temporaryPhotos);
 
-  console.log(allPhoto)
 
 useEffect(() => {
     InstaApi.getPhoto()
@@ -45,12 +44,13 @@ useEffect(() => {
     <section className='portfolio'>
       <h2 className='portfolio__title'>Последние новости из жизни Picther</h2>
       <div className='portfolio__photoContainer'>
-        {allPhoto.slice(0, 12).map((item) => (  
+        {allPhoto.slice(0, 8).map((item) => (  
           <Photo
             key={item.id}
             image={item.media_url}
             type={item.media_type}
             videoImage={item.thumbnail_url}
+            permalink={item.permalink}
           />
         ))}
       </div>

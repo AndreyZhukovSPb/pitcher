@@ -23,7 +23,7 @@ const Stores: React.FC<StoresProps> = () => {
           <Link to='/park' className='box2'>
             <img src={coffeeShop_2} alt="" className='stores__photo'/>
           </Link>
-          <h3 className='store__legend box6'>Парк Победы</h3>
+          <a className='store__legend box6' href='/park'>м Парк Победы: улица Бассейная, 12</a>  
           <Link to='/mayak' className='box3'>
             <img src={coffeeShop_3} alt="" className='stores__photo'/>
           </Link>
@@ -33,7 +33,7 @@ const Stores: React.FC<StoresProps> = () => {
           <Link to='/mayak' className='box5'>
             <img src={coffeeShop_5} alt="" className='stores__photo'/>
           </Link>
-          <h3 className='store__legend box7'>Маяковская</h3>
+          <a className='store__legend box7' href='/mayak'>м Маяковская: улица Марата, 2</a>  
         </div>
       </div>
       

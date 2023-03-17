@@ -60,7 +60,7 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
 
   useEffect(() => {
     if (counter >= sellPictures.length - 1) {
-      console.log('break?')
+//       console.log('break?')
       return;
     } else {
       const interval = setInterval(() => {
@@ -93,9 +93,14 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
     }
   }
 
+  // const keyDownHadler = (event: object) => {
+  //  return console.log(event);
+  // }
+
   return (
     <section className="carousel">
       <div 
+        // onKeyDown={keyDownHadler} 
         className="carousel__inner" 
         style={{ transform: `translateX(-${activeIndex*100}%)` }}
       >
