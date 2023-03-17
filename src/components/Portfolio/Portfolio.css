@@ -1,0 +1,28 @@
+.portfolio {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio__photoContainer {
+  padding: 0 15px 0 15px;
+  width: 100%;
+  box-sizing: border-box;
+  display: grid;
+  width: 100%;
+  gap: 12px;
+  grid-template-columns: repeat(4, 1fr); 
+}
+
+.portfolio__title {
+  font-style: normal;
+  /* font-weight: 400; */
+  font-size: 30px;
+  line-height: 1.29;
+  width: 230px;
+  white-space: normal;
+  text-align: center;
+  margin: 30px 0 20px 0;
+}
