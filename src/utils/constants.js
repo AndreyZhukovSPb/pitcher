@@ -1,6 +1,22 @@
 import image_1 from '../images/picther_slider_1.JPG';
 import image_2 from '../images/sell-photo.png';
 import image_3 from '../images/sell-picture-new.jpg';
+import mayak_v_1 from '../images/mayak_v_1.JPG';
+import mayak_v_2 from '../images/mayak_v_2.JPG';
+import mayak_v_3 from '../images/mayak_v_3.JPG';
+import mayak_v_4 from '../images/mayak_v_4.JPG';
+import mayak_v_5 from '../images/mayak_v_5.JPG';
+import mayak_v_6 from '../images/mayak_v_6.JPG';
+import mayak_v_7 from '../images/mayak_v_7.JPG';
+import mayak_v_8 from '../images/mayak_v_8.JPG';
+import mayak_v_9 from '../images/mayak_v_9.JPG';
+import mayak_v_10 from '../images/mayak_v_10.JPG';
+
+import mayak_h_1 from '../images/mayak_h_1.JPG';
+import mayak_h_2 from '../images/mayak_h_2.JPG';
+import mayak_h_3 from '../images/mayak_h_3.JPG';
+
+
 
 const sellPictures = [
   {
@@ -192,7 +208,134 @@ const temporaryPhotos = [
   },
 ]
 
-export { sellPictures, temporaryPhotos };
+const mayakImages = [
+  {
+    id: 1,
+    image: mayak_h_3,
+    cols: 2,
+    rows: 2
+  },
+  {
+    id: 2,
+    image: mayak_v_1,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 4,
+    image: mayak_v_2,
+    cols: 1,
+    rows: 2
+  },
+  
+  {
+    id: 5,
+    image: mayak_h_2,
+    cols: 2,
+    rows: 1
+  },
+  {
+    id: 3,
+    image: mayak_v_6,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 6,
+    image: mayak_h_1,
+    cols: 2,
+    rows: 2
+  },
+  {
+    id: 7,
+    image: mayak_v_3,
+    cols: 1,
+    rows: 2
+  },
+  {
+    id: 8,
+    image: image_2,
+    cols: 2,
+    rows: 1
+  },
+  {
+    id: 9,
+    image: mayak_v_4,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 10,
+    image: mayak_v_5,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 11,
+    image: image_3,
+    cols: 2,
+    rows: 2
+  },
+  {
+    id: 12,
+    image: mayak_v_8,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 13,
+    image: mayak_v_9,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 14,
+    image: mayak_v_7,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 13,
+    image: mayak_v_10,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 14,
+    image: image_1,
+    cols: 2,
+    rows: 1
+  },
+
+  /* 
+  {
+    id: 5,
+    image: mayak_v_5,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 6,
+    image: mayak_v_6,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 7,
+    image: mayak_v_7,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 1,
+    image: mayak_v_1
+  }, */
+]
+
+
+export { sellPictures, temporaryPhotos, mayakImages };
+
+
 
 /* 
         {sellPictures.map((item) => (

@@ -1,0 +1,84 @@
+.coffeeshop {
+  
+  width: 100%;
+  height: 40vw;
+  
+}
+
+.coffeeshop__infoContainer {
+    border-top: 1px solid rgba(104, 100, 100, 0.4);
+    border-bottom: 1px solid rgba(104, 100, 100, 0.4);
+    display: grid;
+    padding: 0 3vw;
+    box-sizing: border-box;
+    width: 100%;
+    column-gap: 25px;
+    grid-template: 
+      "menu info" 
+      "menu map" / 2fr 3fr;
+    grid-template-rows: 1fr 2fr;
+
+}
+
+
+.coffeeshop__menu {
+  grid-area: menu;
+  width: 100%;
+  height: 40vw;
+}
+
+.coffeeshop__info {
+  grid-area: info;
+  width: 85%;
+  margin: 25px auto 0;
+}
+
+.coffeeshop__content {
+  margin: 5px 0 0 0;
+  font-size: 14px;
+  
+}
+
+.coffeeshop__content:last-of-type {
+  margin-top: 10px;
+  line-height: 1.4;
+  font-weight: 300;
+}
+
+.coffeeshop__map {
+  grid-area: map;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  object-position: cover;
+}
+
+.coffeeshop__iframe {
+  width: 85%;
+  height: 90%;
+  border: none;
+  box-sizing: border-box;
+  object-position: cover;
+}
+
+
+.coffeeshop__mapLink {
+  color: #eee;
+  font-size: 12px;
+  position: absolute;
+  top:0px;
+}
+
+.coffeeshop__mapLinkSecond {
+  color: #eee;
+  font-size: 12px;
+  position: absolute;
+  top: 14px;
+}
+
+
+.coffeeshop__gallery {
+  padding: 0 3vw;
+}

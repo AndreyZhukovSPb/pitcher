@@ -11,6 +11,7 @@ import About from './components/About/About';
 import Portfolio from './components/Portfolio/Portfolio';
 import Reviews from './components/Reviews/Reviews';
 import Footer from './components/Footer/Footer';
+import Coffeeshop from './components/Coffeeshop/Coffeeshop';
 // import { Switch } from 'react-router-dom';
 
 
@@ -35,7 +36,12 @@ function App() {
           }
         />
         <Route path="/park" 
-          element={<></>}
+          element={<>
+            <Header 
+                headerType='main_header'
+              />
+            <Coffeeshop/>  
+          </>}
         />
         
         
