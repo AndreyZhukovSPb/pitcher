@@ -2,35 +2,59 @@ import React from 'react';
 import './Coffeeshop.css';
 import menu from '../../images/menu_new.png';
 import { mayakImages } from '../../utils/constants';
-import { ImageList, ImageListItem } from '@mui/material';
-import {useRef, useState, useEffect} from 'react'
+import { ImageList, ImageListItem, createTheme, ThemeProvider } from '@mui/material';
+import {useState, useEffect} from 'react'
 import useViewportSizes from 'use-viewport-sizes'
 import Footer from '../../components/Footer/Footer';
+import ImagePopup from '../ImagePopup/ImagePopup';
 
 interface coffeeshopProps {
   // logMessage: () => void;
 }
 
 const Coffeeshop: React.FC<coffeeshopProps> = () => {
-  const [vpWidth] = useViewportSizes({ dimension: 'w' });
+  const [vpWidth] = useViewportSizes({ dimension: "w" });
+  const [currentSize, setCurrentSize] = React.useState<number>();
+  const [isPopupOpen, setIsPopupOpen] = React.useState<boolean>(false);
+  const [currentPhoto, setCurrentPhoto] = React.useState<string>('');
 
-  const [currentSize, setCurrentSize] = React.useState<number>()  
-  console.log(currentSize)
-
-  function test() {
-    console.log('test')
-  }
 
   useEffect(() => {
-    setCurrentSize(window.screen.width / 6.734)
-    // setCurrentSize(vpWidth / 6.734)
-  }, [window.screen.width])
+    setCurrentSize(window.screen.width / 6.734);
+  }, [window.screen.width]);
 
+  const theme = createTheme({
+    components: {
+      MuiImageListItem: {
+        styleOverrides: {
+          root: {
+            "&:hover": {
+              cursor: "pointer",
+              opacity: 0.7,
+              transition: "opacity 0.7s ease",
+              boxShadow: "0 0 2px 3px rgba(0, 0, 0, 0.5)",
+            },
+          },
+        },
+      },
+    },
+  });
+
+  function openPopup(image: string) {
+    setCurrentPhoto(image);
+    setIsPopupOpen(true);
+  }
+
+  function closePopup() {
+    setIsPopupOpen(false);
+    setCurrentPhoto('')
+  }
 
   return (
+    <>
     <section className="coffeeshop">
       <div className="coffeeshop__infoContainer">
-        <img src={menu} alt="меню" className="coffeeshop__menu"/>
+        <img src={menu} alt="меню" className="coffeeshop__menu" />
         <div className="coffeeshop__info">
           <p className="coffeeshop__content">м Парк победы. Бассейная 12. </p>
           <p className="coffeeshop__content">
@@ -61,29 +85,41 @@ const Coffeeshop: React.FC<coffeeshopProps> = () => {
           cols={6}
           // rowHeight='auto'
           rowHeight={currentSize}
-          gap={12}
+          gap={6}
         >
           {mayakImages.map((item) => (
-            <ImageListItem
-              key={item.image}
-              cols={item.cols || 1}
-              rows={item.rows || 1}
-              onClick={test}
-            >
-              <img
-                // {...srcset(item.image, 121, item.rows, item.cols)}
-                src={item.image}
-                alt={item.image}
-                loading="lazy"
-              />
-            </ImageListItem>
+            <>
+              <ThemeProvider theme={theme}>
+                <ImageListItem
+                  key={item.image}
+                  cols={item.cols || 1}
+                  rows={item.rows || 1}
+                  // onClick={() => { openPopup(item.image); }}
+                  onClick={() => { openPopup(item.image); }}
+                >
+                  <img
+                    // {...srcset(item.image, 121, item.rows, item.cols)}
+                    src={item.image}
+                    alt={item.image}
+                    loading="lazy"
+                    
+                  />
+                </ImageListItem>
+              </ThemeProvider>
+            </>
           ))}
         </ImageList>
       </div>
-      <Footer/>
+      <Footer />
     </section>
+    <ImagePopup
+      isOpen={isPopupOpen}
+      item={currentPhoto}
+      onClose={closePopup}
+    />
+    </>
   );
-}
+};
 
 export default Coffeeshop;
 
@@ -120,20 +156,4 @@ export default Coffeeshop;
           ></iframe>
 
     МАЯК      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Abc7e1b8cf696de268bec7da8fdd0fe431bfef2557c5033fb92b8abd51dc18a9c&amp;source=constructor" width="657" height="400" frameborder="0"></iframe>
-
-<div 
-        id="my_nanogallery2" 
-        data-nanogallery2='{"thumbnailHeight": 150, "thumbnailWidth": 150, "itemsBaseURL": "https://nanogallery2.nanostudio.org/samples/"}'>
-
-
-        <a href={mayak_v_1}>Title Image 2
-          <img src={mayak_v_1}/>
-        </a>
-        <a href={mayak_v_1}>Title Image 2
-          <img src={mayak_v_1}/>
-        </a>
-        <a href={mayak_v_1}>Title Image 3
-          <img src={mayak_v_1}/>
-        </a>
-      </div>  
 */

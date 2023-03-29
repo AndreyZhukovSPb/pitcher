@@ -6,17 +6,13 @@ import { Link } from 'react-router-dom';
 
 interface carouselItemProps {
   children?: any;
-  width?: string;
-  color: string;
   image?: string;
-  pictureId?: number;
-  text?: string;
 }
 
-export const CarouselItem: React.FC<carouselItemProps> = ({children, width, color, image}) => {
+export const CarouselItem: React.FC<carouselItemProps> = ({children, image}) => {
   return (
     <div 
-      className={`carousel__item carousel__item_type_${color}`}
+      className='carousel__item'
     >
       <img src={image} alt="" className="carousel__image"/>
       {children}
@@ -35,7 +31,7 @@ export const CarouselBox: React.FC<{}> = () => {
   return (
     <Carousel>
       {currentSellPictures.map((item) => (
-          <CarouselItem key={item.pictureId} color={item.color} image={item.image}>
+          <CarouselItem key={item.pictureId} image={item.image}>
             <Link to='/shop'>
               <button className='carousel_button'>купить</button>
             </Link>
@@ -60,7 +56,6 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
 
   useEffect(() => {
     if (counter >= sellPictures.length - 1) {
-//       console.log('break?')
       return;
     } else {
       const interval = setInterval(() => {
@@ -93,14 +88,9 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
     }
   }
 
-  // const keyDownHadler = (event: object) => {
-  //  return console.log(event);
-  // }
-
   return (
     <section className="carousel">
       <div 
-        // onKeyDown={keyDownHadler} 
         className="carousel__inner" 
         style={{ transform: `translateX(-${activeIndex*100}%)` }}
       >
@@ -114,7 +104,6 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
             updateIndex(activeIndex - 1)
           }}
         >
-          
         </button>
         <button
           className={`carousel__wrapButton carousel__wrapButton_type_next ${!rightButtonIsVisible ? 'carousel__wrapButton_hidden' : ''}`}
@@ -122,8 +111,7 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
             updateIndex(activeIndex + 1)
             setCounter((counter) => counter = counter +1 )
           }}
-        >
-          
+        > 
         </button>
       
     </section>
@@ -131,43 +119,3 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
 }
 
 export default Carousel;
-
-
-
-/* 
-      {sellPictures.map((item) => (
-          <CarouselItem key={item.pictureId} color={item.color}>
-            <Link to='/shop'>
-              <button className='carousel_button'>купить</button>
-            </Link>
-            <p className="carousel__text">
-              {item.text}
-            </p>
-          </CarouselItem>
-      ))} 
-
-        function addPictureToStart() {
-    const newArr = sellPictures.map(item => ({
-      pictureId: item.pictureId + currentSellPictures.length,
-      image: item.image,
-      text: item.text,
-      color: item.color
-    }))
-    console.log(newArr);
-    console.log(currentSellPictures);
-    setCurrentSellPictures(prevState => [...newArr, ...prevState])
-  }
-
-  function addPictureToEnd() {
-    const newArr = sellPictures.map(item => ({
-      pictureId: item.pictureId + currentSellPictures.length,
-      image: item.image,
-      text: item.text,
-      color: item.color
-    }))
-    console.log(newArr);
-    console.log(currentSellPictures);
-    setCurrentSellPictures(prevState => [...prevState, ...newArr])
-  }
-
-*/

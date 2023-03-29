@@ -90,6 +90,7 @@
   background: transparent;
   opacity: 0;
   transition: opacity ease 1.5s;
+  cursor: pointer;
 }
 
 
