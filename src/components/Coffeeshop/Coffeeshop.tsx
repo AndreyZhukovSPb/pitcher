@@ -12,12 +12,11 @@ interface coffeeshopProps {
   // logMessage: () => void;
 }
 
-const Coffeeshop: React.FC<coffeeshopProps> = () => {
+const Coffeeshop: React.FC<coffeeshopProps> = (onKeyDown1) => {
   const [vpWidth] = useViewportSizes({ dimension: "w" });
   const [currentSize, setCurrentSize] = React.useState<number>();
   const [isPopupOpen, setIsPopupOpen] = React.useState<boolean>(false);
   const [currentPhoto, setCurrentPhoto] = React.useState<string>('');
-
 
   useEffect(() => {
     setCurrentSize(window.screen.width / 6.734);
@@ -52,7 +51,9 @@ const Coffeeshop: React.FC<coffeeshopProps> = () => {
 
   return (
     <>
-    <section className="coffeeshop">
+    <section 
+      className="coffeeshop"
+    >
       <div className="coffeeshop__infoContainer">
         <img src={menu} alt="меню" className="coffeeshop__menu" />
         <div className="coffeeshop__info">

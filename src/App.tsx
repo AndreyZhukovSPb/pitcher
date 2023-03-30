@@ -17,6 +17,7 @@ import Coffeeshop from './components/Coffeeshop/Coffeeshop';
 
 function App() {
   const [isStore, setIsStore] = useState(false);
+  
 
   return (
     <div className={`page ${isStore? 'page_type_white' : ''}`}>

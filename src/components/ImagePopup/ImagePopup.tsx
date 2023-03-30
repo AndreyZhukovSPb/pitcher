@@ -1,6 +1,6 @@
 import React from 'react';
 import './ImagePopup.css'
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { mayakImages } from '../../utils/constants';
 
 
@@ -43,8 +43,22 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {isOpen, item, onClose = () => {
 
   const [leftButtonIsVisible, setLeftButtonIsVisible] = React.useState<boolean>(true);
   const [rightButtonIsVisible, setRightButtonIsVisible] = React.useState<boolean>(true);
-
   const [currentImage, setCurrentImage] = React.useState<string>('');
+
+  useEffect(() => {
+    if (currentImage === '') {
+      return
+    } else {  
+      document.addEventListener("keydown", handleKeyDown);
+    }
+    function handleKeyDown(e: any) {
+      keyDownHandler(e)
+    }
+    
+    return function cleanup() {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentImage]);
 
   useEffect(() => {
     if(!item) {
@@ -54,12 +68,18 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {isOpen, item, onClose = () => {
     checkVisibility(mayakImages.findIndex(image => image.image === item))
   }, [item]);
 
+  function handleClose() {
+    setLeftButtonIsVisible(true);
+    setRightButtonIsVisible(true);
+    setCurrentImage('')
+    onClose();
+  }
 
   function updatePhopo(message: string, index: number) {
-    console.log(message)
+    // console.log(message)
     let newOne = mayakImages.findIndex(image => image.image === message); 
     setCurrentImage(mayakImages[newOne + index].image)
-    console.log(newOne)
+    // console.log(newOne)
     checkVisibility(newOne + index)
   }
 
@@ -78,11 +98,30 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {isOpen, item, onClose = () => {
     }
   }
 
+  function keyDownHandler(event: any) {
+    // console.log(event.keyCode);
+    if (event.keyCode === 37) {
+      if(!leftButtonIsVisible) {
+        return
+      }
+      updatePhopo(currentImage, -1);
+    } else if (event.keyCode === 39) {
+      if (!rightButtonIsVisible) {
+        return
+      }
+      updatePhopo(currentImage, 1);
+    } else {
+      return
+    }
+  }
+
   return (
     <section
       className={`popup popup_type_element-photo ${
         isOpen && item ? "popup_opened" : ""
       }`}
+      // onKeyDown={(event) => keyDownHandler(event)}
+      
     >
       <div className="popup__photo-container">
         <img className="popup__photo" src={currentImage} alt="фото кофейни" />
@@ -91,7 +130,7 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {isOpen, item, onClose = () => {
         aria-label="Close"
         type="button"
         className="popup__close-button"
-        onClick={onClose}
+        onClick={handleClose}
       ></button>
       <button
         className={`popup__wrapButton popup__wrapButton_type_prev ${
@@ -118,4 +157,6 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {isOpen, item, onClose = () => {
 export default ImagePopup;
 
 /*
+лево 37
+право 39
 */
