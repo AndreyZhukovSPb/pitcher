@@ -1,8 +1,8 @@
-
 import React, {useState, useEffect} from "react";
 import './Carousel.css'
 import { sellPictures } from "../../utils/constants"
 import { Link } from 'react-router-dom';
+import Header from "../header/Header";
 
 interface carouselItemProps {
   children?: any;
@@ -24,24 +24,46 @@ export const CarouselBox: React.FC<{}> = () => {
   const [currentSellPictures, setCurrentSellPictures] = React.useState<Array<{
     pictureId: number,
     image: string,
-    text: string,
-    color: string
+    text_1: string,
+    text_2: string,
+    text_3: string,
+    color: string,
+    number: string,
   }>>(sellPictures);
 
   return (
+    // <section className="box">
+    <>
+    <Header 
+      headerType="main_header header__type_new" 
+      isMain={true}
+      />   
     <Carousel>
+    
+    
       {currentSellPictures.map((item) => (
-          <CarouselItem key={item.pictureId} image={item.image}>
-            <Link to='/shop'>
-              <button className='carousel_button'>купить</button>
-            </Link>
-            <p className="carousel__text">
-              {item.text}
-            </p>
-          </CarouselItem>
-      ))} 
+        
+        <CarouselItem key={item.pictureId} image={item.image}>
+        
+          <Link to="/shop">
+            <button className="carousel_button">
+
+            <p className="carousel_buttonText">купить</p>
+            </button>
+            
+          </Link>
+          <div className={`carousel__textContainer carousel__textContainer_type_${item.number}`}>
+            <p className="carousel__text">{item.text_1}</p>
+            <p className="carousel__text">{item.text_2}</p>
+            <p className="carousel__text">{item.text_3}</p>
+          </div>
+        </CarouselItem>
+      ))}
     </Carousel>
-  )
+    </>
+    // </section>
+    
+  );
 }
 
 interface carouselProps {
@@ -61,7 +83,7 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
       const interval = setInterval(() => {
         setCounter((counter) => counter = counter +1 )
         updateIndex(activeIndex + 1)
-      }, 2000)
+      }, 3500)
       return () => {
         if (interval) {
           clearInterval(interval);

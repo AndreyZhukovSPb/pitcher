@@ -1,13 +1,11 @@
 .coffeeshop {
-  
   width: 100%;
-  height: 40vw;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .coffeeshop__infoContainer {
-    border-top: 1px solid rgba(104, 100, 100, 0.4);
-    border-bottom: 1px solid rgba(104, 100, 100, 0.4);
     display: grid;
     padding: 0 3vw;
     box-sizing: border-box;
@@ -17,32 +15,36 @@
       "menu info" 
       "menu map" / 2fr 3fr;
     grid-template-rows: 1fr 2fr;
-
+    margin: 16px 0;
+    /* height: calc(60vh + 42px); */
+    height: 40.5vw;
 }
-
 
 .coffeeshop__menu {
   grid-area: menu;
   width: 100%;
-  height: 40vw;
+  height: 100%;
 }
 
 .coffeeshop__info {
   grid-area: info;
   width: 85%;
-  margin: 25px auto 0;
+  margin: 25px auto 16px;
+  height: 100%;
 }
 
 .coffeeshop__content {
   margin: 5px 0 0 0;
-  font-size: 14px;
+  font-size: 16px;
   
 }
 
 .coffeeshop__content:last-of-type {
   margin-top: 10px;
   line-height: 1.4;
-  font-weight: 300;
+  letter-spacing: 0.8px;
+  font-family: 'mont_extralightdemo';
+  font-size: 14px;
 }
 
 .coffeeshop__map {
@@ -52,12 +54,12 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  object-position: cover;
+  max-height: 100%;
 }
 
 .coffeeshop__iframe {
   width: 85%;
-  height: 90%;
+  height: 100%;
   border: none;
   box-sizing: border-box;
   object-position: cover;

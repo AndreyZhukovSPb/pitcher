@@ -4,9 +4,28 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: black;
   padding: 0 3vw;
   box-sizing: border-box;
+}
+
+.header__type_new {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  color: white;
+}
+
+.header__type_new::before {
+  content: '';
+  background-color: #b0aea148;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 /* @media screen and (max-width: 1279px) {
@@ -23,7 +42,9 @@
 
 */
 
-.header__logo{
+.header__logo {
+  height: 50px;
+  margin: 20px auto 12px;
   cursor: pointer;
   transition: opacity 0.4s linear;
 }
@@ -31,6 +52,12 @@
 .header__logo:hover{
   opacity: 0.5;
 }
+
+.header__logo_type_main {
+  filter: invert(100%);
+}
+
+
 
 
 /* 

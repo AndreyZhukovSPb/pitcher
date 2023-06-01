@@ -16,26 +16,65 @@ import mayak_h_1 from '../images/mayak_h_1.JPG';
 import mayak_h_2 from '../images/mayak_h_2.JPG';
 import mayak_h_3 from '../images/mayak_h_3.JPG';
 
+import park_h_1 from '../images/Park_h_1.jpg';
+import park_h_2 from '../images/Park_h_2.jpg';
+import park_h_3 from '../images/Park_h_3.jpg';
+import park_v_1 from '../images/Park_v_1.jpg';
+import park_v_2 from '../images/Park_v_2.jpg';
+import park_v_3 from '../images/Park_v_3.jpg';
+import park_v_4 from '../images/Park_v_4.jpg';
+import park_v_5 from '../images/Park_v_5.jpg';
+import park_v_6 from '../images/Park_v_6.jpg';
+import park_v_7 from '../images/Park_v_7.jpg';
+import park_v_8 from '../images/Park_v_7.jpg';
+import park_v_9 from '../images/Park_v_7.jpg';
+import park_v_10 from '../images/Park_v_7.jpg';
+import park_v_11 from '../images/Park_v_7.jpg';
+import park_v_12 from '../images/Park_v_7.jpg';
+import park_v_13 from '../images/Park_v_7.jpg';
+
+import main_1 from '../images/main_brew.jpeg'
+import main_2 from '../images/main_drip_v_1.jpeg'
+import main_3 from '../images/main_drip_v_2.jpeg'
+import main_4 from '../images/main_pack_v_1.jpeg'
+import main_5 from '../images/main_pack_v_2.jpeg'
+import main_6 from '../images/brew_edit.jpg'
+import main_7 from '../images/main_new_1.jpeg'
+import main_8 from '../images/main_new_2.jpeg'
 
 
 const sellPictures = [
   {
-    pictureId: 1,
-    image: image_1,
-    text: "продающий текст для первого слайда, тут что-то хорошее написано",
+    pictureId: 201,
+    // image: main_1,
+    image: main_6,
+    text_1: "Мы привыкли к превосходному кофе.",
+    text_2: "К счастью, хорошую чашку можно приготовить и дома.",
+    text_3: "",
     color: "blue",
+    number: 'first',
   },
   {
-    pictureId: 2,
-    image: image_2,
-    text: "продающий текст для второго слайда, тут что-то хорошее написано",
+    pictureId: 202,
+    // image: main_3,
+    // image: main_2,
+    image: main_7,
+    // image: main_8,
+    text_1: "Дрип пакеты кофе.",
+    text_2: "Возьмите с собой в поездку.",
+    text_3: "Пейте кофе в горах, на пляже, в поезде или самолете.",
     color: "black",
+    number: 'second',
   },
   {
-    pictureId: 3,
-    image: image_3,
-    text: "продающий текст для третьего слайда, тут что-то хорошее написано",
+    pictureId: 203,
+    image: main_4,
+    // image: main_5,
+    text_1: "Пейте вкусный кофе.",
+    text_2: "Когда и где захотите.",
+    text_3: "Вместе с Pitcher.",
     color: "white",
+    number: 'third',
   },
 ];
 
@@ -210,145 +249,221 @@ const temporaryPhotos = [
 
 const mayakImages = [
   {
-    id: 1,
+    id: 10,
     image: mayak_h_3,
     cols: 2,
     rows: 2
   },
   {
-    id: 2,
+    id: 11,
     image: mayak_v_1,
     cols: 1,
     rows: 1
   },
   {
-    id: 4,
+    id: 12,
     image: mayak_v_2,
     cols: 1,
     rows: 2
   },
-  
   {
-    id: 5,
+    id: 13,
     image: mayak_h_2,
     cols: 2,
     rows: 1
   },
   {
-    id: 3,
+    id: 14,
     image: mayak_v_6,
     cols: 1,
     rows: 1
   },
   {
-    id: 6,
+    id: 15,
     image: mayak_h_1,
     cols: 2,
     rows: 2
   },
   {
-    id: 7,
+    id: 16,
     image: mayak_v_3,
     cols: 1,
     rows: 2
   },
   {
-    id: 8,
+    id: 17,
     image: image_2,
     cols: 2,
     rows: 1
   },
   {
-    id: 9,
+    id: 18,
     image: mayak_v_4,
     cols: 1,
     rows: 1
   },
   {
-    id: 10,
+    id: 19,
     image: mayak_v_5,
     cols: 1,
     rows: 1
   },
   {
-    id: 11,
+    id: 20,
     image: image_3,
     cols: 2,
     rows: 2
   },
   {
-    id: 12,
+    id: 21,
     image: mayak_v_8,
     cols: 1,
     rows: 1
   },
   {
-    id: 13,
+    id: 22,
     image: mayak_v_9,
     cols: 1,
     rows: 1
   },
   {
-    id: 14,
+    id: 23,
     image: mayak_v_7,
     cols: 1,
     rows: 1
   },
   {
-    id: 13,
+    id: 24,
     image: mayak_v_10,
     cols: 1,
     rows: 1
   },
   {
-    id: 14,
+    id: 25,
     image: image_1,
     cols: 2,
     rows: 1
   },
-
-  /* 
-  {
-    id: 5,
-    image: mayak_v_5,
-    cols: 1,
-    rows: 1
-  },
-  {
-    id: 6,
-    image: mayak_v_6,
-    cols: 1,
-    rows: 1
-  },
-  {
-    id: 7,
-    image: mayak_v_7,
-    cols: 1,
-    rows: 1
-  },
-  {
-    id: 1,
-    image: mayak_v_1
-  }, */
 ]
 
+const parkImages = [
+  {
+    id: 100,
+    image: park_h_1,
+    cols: 2,
+    rows: 2
+  },
+  {
+    id: 101,
+    image: park_v_3,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 102,
+    image: park_v_2,
+    cols: 1,
+    rows: 2
+  },
+  {
+    id: 103,
+    image: park_h_2,
+    cols: 2,
+    rows: 1
+  },
+  {
+    id: 104,
+    image: park_v_6,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 105,
+    image: park_h_3,
+    cols: 2,
+    rows: 2
+  },
+  {
+    id: 106,
+    image: park_v_1,
+    cols: 1,
+    rows: 2
+  },
+  {
+    id: 107,
+    image: park_v_13,
+    cols: 2,
+    rows: 1
+  },
+  {
+    id: 108,
+    image: park_v_4,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 109,
+    image: park_v_5,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 110,
+    image: park_v_1,
+    cols: 2,
+    rows: 2
+  },
+  {
+    id: 111,
+    image: park_v_8,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 112,
+    image: park_v_9,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 113,
+    image: park_v_7,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 114,
+    image: park_v_10,
+    cols: 1,
+    rows: 1
+  },
+  {
+    id: 115,
+    image: park_v_2,
+    cols: 2,
+    rows: 1
+  },
+]
 
-export { sellPictures, temporaryPhotos, mayakImages };
+const dataMayak = {
+  map: 'https://yandex.ru/map-widget/v1/?um=constructor%3Abc7e1b8cf696de268bec7da8fdd0fe431bfef2557c5033fb92b8abd51dc18a9c&amp;source=constructor',
+  title: 'м Маяковская. Марата 2. ',
+  shcedule: 'Режим работы: Пн-Пт: 9:00-22:00',
+  content: 'Кофейня в центре Санкт-Петербурга. Есть альтернатива, завтраки, сендвичи. На 16 посадочких мест. Надеюсь что потом допишу 3 абзаца текста. Надеюсь что потом допишу 3 абзаца текста. Надеюсь что потом допишу 3 абзаца текста. Надеюсь что потом допишу 3 абзаца текста. Надеюсь что потом допишу 3 абзаца текста. Надеюсь что потом допишу 3 абзаца текста. Надеюсь что потом допишу 3 абзаца текста. Надеюсь что потом допишу 3 аб'
+}
 
+const dataPark = {
+  map: 'https://yandex.ru/map-widget/v1/?um=constructor%3Ae3cfb7218df9db2d09a1864e7174f01d12e0d6df1cc0672b3ed2c068cb099efe&amp;source=constructor',
+  title: 'м Парк победы. Бассейная 12. ',
+  shcedule: 'Режим работы: Пн-Пт: 8:00-22:00; Сб-Вс: 9:00-22:00',
+  content: 'Первая кофейня PITCHER. Здесь все началось. Надеюсь что потом допишу 3 абзаца текста. Надеюсь что потом допишу 3 абзаца текста. Надеюсь что потом допишу 3 абзаца текста. Надеюсь что потом допишу 3 абзаца текста. Надеюсь что потом допишу 3 абзаца текста. Надеюсь что потом допишу 3 абзаца текста. '
+}
 
-
-/* 
-        {sellPictures.map((item) => (
-          <div key={item.pictureId}>
-            <CarouselItem color={item.color}>{item.text}</CarouselItem>
-          </div>
-        ))}
-
-<CarouselItem color="blue">певрый</CarouselItem>
-      <CarouselItem color="black">второй</CarouselItem>
-      <CarouselItem color="white">третий</CarouselItem>    
-      
-      
- 
-
-*/
+export { 
+  sellPictures, 
+  temporaryPhotos, 
+  mayakImages, 
+  parkImages, 
+  dataMayak,
+  dataPark  
+};

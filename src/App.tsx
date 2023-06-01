@@ -12,42 +12,57 @@ import Portfolio from './components/Portfolio/Portfolio';
 import Reviews from './components/Reviews/Reviews';
 import Footer from './components/Footer/Footer';
 import Coffeeshop from './components/Coffeeshop/Coffeeshop';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import SectionLine from './components/SectionLine/SectionLine';
 // import { Switch } from 'react-router-dom';
 
 
 function App() {
   const [isStore, setIsStore] = useState(false);
+  // //<Header headerType="main_header" />
   
-
   return (
-    <div className={`page ${isStore? 'page_type_white' : ''}`}>
-      <Routes>
-        <Route path="/" 
-          element={
-            <>
-              <Header 
-                headerType='main_header'
-              />
-              <CarouselBox/>
-              <Stores/>
-              <About/>
-              <Portfolio/>
-              <Footer/>
-            </>
-          }
-        />
-        <Route path="/park" 
-          element={<>
-            <Header 
-                headerType='main_header'
-              />
-            <Coffeeshop/>  
-          </>}
-        />
-        
-        
-        
-      </Routes>
+    <div className={`page ${isStore ? "page_type_white" : ""}`}>
+      <ScrollToTop>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                
+                <CarouselBox />
+                <Stores />
+                <About />
+                <Portfolio />
+                <SectionLine
+                  isMain={true}
+                />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/park"
+            element={
+              <>
+                <Header headerType="main_header" isPark={true} />
+                <SectionLine isMain={false} />
+                <Coffeeshop isMayak={false} isPark={true} />
+              </>
+            }
+          />
+          <Route
+            path="/mayak"
+            element={
+              <>
+                <Header headerType="main_header" isMayak={true} />
+                <SectionLine isMain={false} />
+                <Coffeeshop isMayak={true} isPark={false} />
+              </>
+            }
+          />
+        </Routes>
+      </ScrollToTop>
     </div>
   );
 }

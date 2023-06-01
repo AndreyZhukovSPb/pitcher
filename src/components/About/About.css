@@ -7,8 +7,12 @@
   min-height: 500px;
   width: 100%;
   box-sizing: border-box;
-  font-style: normal;
+  /* font-style: normal; */
   /* font-weight: 500; */
+  line-height: 1.4;
+  letter-spacing: 0.8px;
+  font-family: 'mont_extralightdemo';
+  font-size: 13px;
 }
 
 .about__container {
@@ -33,7 +37,7 @@
 }
 
 .about__contextContainer {
-  margin: auto 0 auto 0;
+  margin: 12px 0 auto 0;
 }
 
 .about__context {

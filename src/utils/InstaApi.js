@@ -32,7 +32,7 @@ const InstaApi =
 new Api(
   {
     baseUrl: 'https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,timestamp,thumbnail_url,permalink',
-    token: 'IGQVJVb24zc0NPcFdnM3ZAlZA21WVHJTa3JIaG5yTFpHVGN0bUZABbWFERmN1cWtfYmtWNktiZAmozN3ZAHRm5hYWNGVjRPbWZAzRmd5NXFtZAnFPb1k0cGduZAjMxcDM1RklEb1dKNlkyR2xiWFJFUkVJMEtwWQZDZD'
+    token: 'IGQVJXT2xUcXB3OWpJeXZA6LU5pS2otd0pRZATF0cWw0bUVlWFFuQ2JwQkZAWYmhjMmphazUzZAkVZAYUJmWS1ybzE2MmZANSk92eWhsaE8yWnh2c3lCWFEwRWFLZAk1hQlhGVDFHX0RnZA0VzOUVDTUZAiT1ZAQYQZDZD'
   }
 )
 

@@ -1,26 +1,52 @@
 import React from 'react';
 import './Coffeeshop.css';
 import menu from '../../images/menu_new.png';
-import { mayakImages } from '../../utils/constants';
 import { ImageList, ImageListItem, createTheme, ThemeProvider } from '@mui/material';
 import {useState, useEffect} from 'react'
 import useViewportSizes from 'use-viewport-sizes'
 import Footer from '../../components/Footer/Footer';
 import ImagePopup from '../ImagePopup/ImagePopup';
+import { mayakImages, parkImages, dataMayak, dataPark } from '../../utils/constants'
+import SectionLine from '../SectionLine/SectionLine';
 
 interface coffeeshopProps {
-  // logMessage: () => void;
+  isMayak: boolean
+  isPark: boolean
 }
 
-const Coffeeshop: React.FC<coffeeshopProps> = (onKeyDown1) => {
+const Coffeeshop: React.FC<coffeeshopProps> = ( {isMayak, isPark = () => {}} ) => {  
   const [vpWidth] = useViewportSizes({ dimension: "w" });
   const [currentSize, setCurrentSize] = React.useState<number>();
   const [isPopupOpen, setIsPopupOpen] = React.useState<boolean>(false);
   const [currentPhoto, setCurrentPhoto] = React.useState<string>('');
 
+  const [currentPictures, setCurrentPictures] = React.useState<Array<{
+    id: number,
+    image: string,
+    cols: number,
+    rows: number
+  }>>([]);
+
+  const [currentShopData, setCurrentShopData] = React.useState<{
+    map?: string,
+    title?: string,
+    shcedule?: string,
+    content?: string
+  }>({})
+
   useEffect(() => {
     setCurrentSize(window.screen.width / 6.734);
   }, [window.screen.width]);
+  
+  useEffect(()=>{
+    if (isMayak) {
+      setCurrentPictures(mayakImages);
+      setCurrentShopData(dataMayak);
+    } else if (isPark) {
+      setCurrentPictures(parkImages);
+      setCurrentShopData(dataPark);
+    } 
+  }, [isPark, isMayak])
 
   const theme = createTheme({
     components: {
@@ -49,6 +75,8 @@ const Coffeeshop: React.FC<coffeeshopProps> = (onKeyDown1) => {
     setCurrentPhoto('')
   }
 
+  // <p className="coffeeshop__content">м Парк победы. Бассейная 12. </p>
+
   return (
     <>
     <section 
@@ -57,45 +85,35 @@ const Coffeeshop: React.FC<coffeeshopProps> = (onKeyDown1) => {
       <div className="coffeeshop__infoContainer">
         <img src={menu} alt="меню" className="coffeeshop__menu" />
         <div className="coffeeshop__info">
-          <p className="coffeeshop__content">м Парк победы. Бассейная 12. </p>
-          <p className="coffeeshop__content">
-            Режим работы: Пн-Пт: 8:00-22:00; Сб-Вс: 9:00-22:00
-          </p>
-          <p className="coffeeshop__content">
-            Первая кофейня PITCHER. Здесь все началось. Надеюсь что потом допишу
-            3 абзаца текста. Надеюсь что потом допишу 3 абзаца текста. Надеюсь
-            что потом допишу 3 абзаца текста. Надеюсь что потом допишу 3 абзаца
-            текста. Надеюсь что потом допишу 3 абзаца текста. Надеюсь что потом
-            допишу 3 абзаца текста. Надеюсь что потом допишу 3 абзаца текста.
-            Надеюсь что потом допишу 3 абзаца текста. Надеюсь что потом допишу 3
-            абзаца текста
-          </p>
+          <p className="coffeeshop__content">{currentShopData.title}</p>
+          <p className="coffeeshop__content">{currentShopData.shcedule}</p>
+          <p className="coffeeshop__content"> {currentShopData.content}</p>
         </div>
         <div className="coffeeshop__map">
           <iframe
             className="coffeeshop__iframe"
-            src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae3cfb7218df9db2d09a1864e7174f01d12e0d6df1cc0672b3ed2c068cb099efe&amp;source=constructor"
+            src={currentShopData.map}
             title="2"
           ></iframe>
         </div>
       </div>
+      <SectionLine />
       <div className="coffeeshop__gallery">
         <ImageList
-          // sx={{ height: 100vh }}
+          // sx={{ height: 100, width: 500 }}
           variant="quilted"
           cols={6}
           // rowHeight='auto'
           rowHeight={currentSize}
           gap={6}
         >
-          {mayakImages.map((item) => (
+          {currentPictures.map((item) => (
             <>
               <ThemeProvider theme={theme}>
                 <ImageListItem
                   key={item.image}
                   cols={item.cols || 1}
                   rows={item.rows || 1}
-                  // onClick={() => { openPopup(item.image); }}
                   onClick={() => { openPopup(item.image); }}
                 >
                   <img
@@ -111,12 +129,14 @@ const Coffeeshop: React.FC<coffeeshopProps> = (onKeyDown1) => {
           ))}
         </ImageList>
       </div>
+      <SectionLine />
       <Footer />
     </section>
     <ImagePopup
       isOpen={isPopupOpen}
       item={currentPhoto}
       onClose={closePopup}
+      arrayOfImages={currentPictures}
     />
     </>
   );

@@ -1,16 +1,22 @@
 import React from 'react';
 import './ImagePopup.css'
-import { useState, useEffect } from 'react'
-import { mayakImages } from '../../utils/constants';
+import { useState, useEffect, useRef } from 'react'
 
+interface MyType {
+    id: number,
+    image: string,
+    cols: number,
+    rows: number
+}
 
 interface ImagePopupProps {
   isOpen: boolean,
   item: string,
   onClose: () => void,
+  arrayOfImages: Array<MyType> 
 }
 //const ImagePopup: React.FC<ImagePopupProps> = (isOpen, item, onClose = () => {}) => {
-const ImagePopup: React.FC<ImagePopupProps> = ( {isOpen, item, onClose = () => {}} ) => {
+const ImagePopup: React.FC<ImagePopupProps> = ( {arrayOfImages, isOpen, item, onClose = () => {}} ) => {
   /* const [currentPhoto, setCurrentPhoto] = React.useState<string>('');
   // const [isPopupOpen, setIsPopupOpen] = React.useState<boolean>(false);
   function closePopup() {
@@ -44,6 +50,7 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {isOpen, item, onClose = () => {
   const [leftButtonIsVisible, setLeftButtonIsVisible] = React.useState<boolean>(true);
   const [rightButtonIsVisible, setRightButtonIsVisible] = React.useState<boolean>(true);
   const [currentImage, setCurrentImage] = React.useState<string>('');
+  const overlayRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (currentImage === '') {
@@ -54,18 +61,18 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {isOpen, item, onClose = () => {
     function handleKeyDown(e: any) {
       keyDownHandler(e)
     }
-    
     return function cleanup() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [currentImage]);
 
   useEffect(() => {
-    if(!item) {
+    if(!item || !arrayOfImages) {
       return
     }
     setCurrentImage(item)
-    checkVisibility(mayakImages.findIndex(image => image.image === item))
+    // checkVisibility(mayakImages.findIndex(image => image.image === item))
+    checkVisibility(arrayOfImages.findIndex(image => image.image === item))
   }, [item]);
 
   function handleClose() {
@@ -76,17 +83,18 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {isOpen, item, onClose = () => {
   }
 
   function updatePhopo(message: string, index: number) {
-    // console.log(message)
-    let newOne = mayakImages.findIndex(image => image.image === message); 
-    setCurrentImage(mayakImages[newOne + index].image)
-    // console.log(newOne)
+    // let newOne = mayakImages.findIndex(image => image.image === message); 
+    let newOne = arrayOfImages.findIndex(image => image.image === message); 
+    // setCurrentImage(mayakImages[newOne + index].image)
+    setCurrentImage(arrayOfImages[newOne + index].image)
     checkVisibility(newOne + index)
   }
 
   function checkVisibility(index: number) {
     if (index < 1) {
       setLeftButtonIsVisible(false);
-    } else if (index >= mayakImages.length - 1) {
+    // } else if (index >= mayakImages.length - 1) {
+    } else if (index >= arrayOfImages.length - 1) {      
       setRightButtonIsVisible(false)
     } else {
       if (!leftButtonIsVisible) {
@@ -99,7 +107,9 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {isOpen, item, onClose = () => {
   }
 
   function keyDownHandler(event: any) {
-    // console.log(event.keyCode);
+    if (event.keyCode === 27) {
+      handleClose();
+    }
     if (event.keyCode === 37) {
       if(!leftButtonIsVisible) {
         return
@@ -115,8 +125,16 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {isOpen, item, onClose = () => {
     }
   }
 
+  function handleCheckIsOverlay(e: any) {
+    if (!overlayRef.current || e.target.contains(overlayRef.current)) {
+      handleClose()
+    } 
+  }
+
   return (
     <section
+      onClick={handleCheckIsOverlay}
+      ref={overlayRef}
       className={`popup popup_type_element-photo ${
         isOpen && item ? "popup_opened" : ""
       }`}
