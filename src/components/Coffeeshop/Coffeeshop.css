@@ -1,0 +1,87 @@
+.coffeeshop {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coffeeshop__infoContainer {
+    display: grid;
+    padding: 0 3vw;
+    box-sizing: border-box;
+    width: 100%;
+    column-gap: 25px;
+    grid-template: 
+      "menu info" 
+      "menu map" / 2fr 3fr;
+    grid-template-rows: 1fr 2fr;
+    margin: 16px 0;
+    /* height: calc(60vh + 42px); */
+    height: 40.5vw;
+}
+
+.coffeeshop__menu {
+  grid-area: menu;
+  width: 100%;
+  height: 100%;
+}
+
+.coffeeshop__info {
+  grid-area: info;
+  width: 85%;
+  margin: 25px auto 16px;
+  height: 100%;
+}
+
+.coffeeshop__content {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+  
+}
+
+.coffeeshop__content:last-of-type {
+  margin-top: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.8px;
+  font-family: 'mont_extralightdemo';
+  font-size: 14px;
+}
+
+.coffeeshop__map {
+  grid-area: map;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-height: 100%;
+}
+
+.coffeeshop__iframe {
+  width: 85%;
+  height: 100%;
+  border: none;
+  box-sizing: border-box;
+  object-position: cover;
+}
+
+
+.coffeeshop__mapLink {
+  color: #eee;
+  font-size: 12px;
+  position: absolute;
+  top:0px;
+}
+
+.coffeeshop__mapLinkSecond {
+  color: #eee;
+  font-size: 12px;
+  position: absolute;
+  top: 14px;
+}
+
+
+.coffeeshop__gallery {
+  padding: 0 3vw;
+}
+

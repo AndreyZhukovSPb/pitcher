@@ -1,22 +1,18 @@
-
 import React, {useState, useEffect} from "react";
 import './Carousel.css'
 import { sellPictures } from "../../utils/constants"
 import { Link } from 'react-router-dom';
+import Header from "../header/Header";
 
 interface carouselItemProps {
   children?: any;
-  width?: string;
-  color: string;
   image?: string;
-  pictureId?: number;
-  text?: string;
 }
 
-export const CarouselItem: React.FC<carouselItemProps> = ({children, width, color, image}) => {
+export const CarouselItem: React.FC<carouselItemProps> = ({children, image}) => {
   return (
     <div 
-      className={`carousel__item carousel__item_type_${color}`}
+      className='carousel__item'
     >
       <img src={image} alt="" className="carousel__image"/>
       {children}
@@ -28,24 +24,46 @@ export const CarouselBox: React.FC<{}> = () => {
   const [currentSellPictures, setCurrentSellPictures] = React.useState<Array<{
     pictureId: number,
     image: string,
-    text: string,
-    color: string
+    text_1: string,
+    text_2: string,
+    text_3: string,
+    color: string,
+    number: string,
   }>>(sellPictures);
 
   return (
+    // <section className="box">
+    <>
+    <Header 
+      headerType="main_header header__type_new" 
+      isMain={true}
+      />   
     <Carousel>
+    
+    
       {currentSellPictures.map((item) => (
-          <CarouselItem key={item.pictureId} color={item.color} image={item.image}>
-            <Link to='/shop'>
-              <button className='carousel_button'>купить</button>
-            </Link>
-            <p className="carousel__text">
-              {item.text}
-            </p>
-          </CarouselItem>
-      ))} 
+        
+        <CarouselItem key={item.pictureId} image={item.image}>
+        
+          <Link to="/shop">
+            <button className="carousel_button">
+
+            <p className="carousel_buttonText">купить</p>
+            </button>
+            
+          </Link>
+          <div className={`carousel__textContainer carousel__textContainer_type_${item.number}`}>
+            <p className="carousel__text">{item.text_1}</p>
+            <p className="carousel__text">{item.text_2}</p>
+            <p className="carousel__text">{item.text_3}</p>
+          </div>
+        </CarouselItem>
+      ))}
     </Carousel>
-  )
+    </>
+    // </section>
+    
+  );
 }
 
 interface carouselProps {
@@ -60,13 +78,12 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
 
   useEffect(() => {
     if (counter >= sellPictures.length - 1) {
-//       console.log('break?')
       return;
     } else {
       const interval = setInterval(() => {
         setCounter((counter) => counter = counter +1 )
         updateIndex(activeIndex + 1)
-      }, 2000)
+      }, 3500)
       return () => {
         if (interval) {
           clearInterval(interval);
@@ -93,14 +110,9 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
     }
   }
 
-  // const keyDownHadler = (event: object) => {
-  //  return console.log(event);
-  // }
-
   return (
     <section className="carousel">
       <div 
-        // onKeyDown={keyDownHadler} 
         className="carousel__inner" 
         style={{ transform: `translateX(-${activeIndex*100}%)` }}
       >
@@ -114,7 +126,6 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
             updateIndex(activeIndex - 1)
           }}
         >
-          
         </button>
         <button
           className={`carousel__wrapButton carousel__wrapButton_type_next ${!rightButtonIsVisible ? 'carousel__wrapButton_hidden' : ''}`}
@@ -122,8 +133,7 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
             updateIndex(activeIndex + 1)
             setCounter((counter) => counter = counter +1 )
           }}
-        >
-          
+        > 
         </button>
       
     </section>
@@ -131,43 +141,3 @@ const Carousel: React.FC<carouselProps> = ({children}) => {
 }
 
 export default Carousel;
-
-
-
-/* 
-      {sellPictures.map((item) => (
-          <CarouselItem key={item.pictureId} color={item.color}>
-            <Link to='/shop'>
-              <button className='carousel_button'>купить</button>
-            </Link>
-            <p className="carousel__text">
-              {item.text}
-            </p>
-          </CarouselItem>
-      ))} 
-
-        function addPictureToStart() {
-    const newArr = sellPictures.map(item => ({
-      pictureId: item.pictureId + currentSellPictures.length,
-      image: item.image,
-      text: item.text,
-      color: item.color
-    }))
-    console.log(newArr);
-    console.log(currentSellPictures);
-    setCurrentSellPictures(prevState => [...newArr, ...prevState])
-  }
-
-  function addPictureToEnd() {
-    const newArr = sellPictures.map(item => ({
-      pictureId: item.pictureId + currentSellPictures.length,
-      image: item.image,
-      text: item.text,
-      color: item.color
-    }))
-    console.log(newArr);
-    console.log(currentSellPictures);
-    setCurrentSellPictures(prevState => [...prevState, ...newArr])
-  }
-
-*/

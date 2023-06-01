@@ -1,8 +1,19 @@
 .photo {
   width: 100%;
-  height: 23vw;
+  height: 19vw;
   /* height: 300px; */
   object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.7s ease;
+  border-radius: 1px;
 }
+
+.photo:hover {
+  opacity: 0.7;
+  box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+
 
 

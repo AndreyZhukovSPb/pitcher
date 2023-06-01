@@ -8,11 +8,19 @@
   /* font-family: 'mont_extralightdemo', 'Inter', sans-serif; */
   font-family: sans-serif; 
   font-family: 'Inter'; 
-  font-family: 'mont_extralightdemo';
-  font-weight: 1000;
-  font-family: 'mont_heavydemo';
   font-family: 'BebasNeue-Regular';
   font-family: 'BebasNeue-Book';
+  font-family: 'OpenSans-Medium';
+  font-family: 'OpenSans-Regular';
+  font-family: 'OpenSans-Light';
+  font-family: 'mont_extralightdemo';
+  font-family: 'Mont-Light';
+  font-family: 'Mont-Regular';
+  font-family: 'Mont-SemiBold';
+  font-family: 'Montserrat-Regular';
+  font-family: 'Montserrat-Light';
+  font-family: 'Montserrat-Medium';
+  font-weight: 1000;
   font-weight: 600;
   letter-spacing: 1.2px;
   -moz-osx-font-smoothing: grayscale;

@@ -5,6 +5,8 @@
   flex-direction: column;
   width: 100%;
   background-color: white;
+  font-family: 'Mont-Regular';
+  
 }
 
 .footer__container {
@@ -33,6 +35,7 @@
   list-style: none;
   margin-top: 12px;
   align-items: flex-end;
+  letter-spacing: 0.8px;
 }
 
 .footer__icon {
@@ -70,6 +73,7 @@
   width: 270px;
   display: flex;
   justify-content: space-between;
+  letter-spacing: 0.8px;
 }
 
 .footer__coffeshop {
@@ -85,6 +89,7 @@
   line-height: 1.2;
   color: #424242;
   text-align: center;
+  letter-spacing: 0.8px;
 }
 
 .footer__title {

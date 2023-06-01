@@ -22,12 +22,22 @@
 }
 
 @font-face {
-  font-family: 'mont_heavydemo';
-  font-weight: 500;
+  font-family: 'Mont-Light';
   src: 
-    url(./Fonts/mont_heavydemo.woff) format("woff")
+    url(./Fonts/Mont-Light.woff) format("woff")
 }
 
+@font-face {
+  font-family: 'Mont-Regular';
+  src: 
+    url(./Fonts/Mont-Regular.woff) format("woff")
+}
+
+@font-face {
+  font-family: 'Mont-SemiBold';
+  src: 
+    url(./Fonts/Mont-SemiBold.woff) format("woff")
+}
 
 @font-face {
   font-family: 'BebasNeue-Book';
@@ -40,4 +50,45 @@
   src: 
     url(./Fonts/BebasNeue-Regular.woff) format("woff")
 }
+
+@font-face {
+  font-family: 'OpenSans-Light';
+  src: 
+    url(./Fonts/OpenSans-Light.woff) format("woff"),
+    url(./Fonts/OpenSans-Light.woff2) format("woff2")
+}
+
+@font-face {
+  font-family: 'OpenSans-Medium';
+  src: 
+    url(./Fonts/OpenSans-Medium.woff) format("woff"),
+    url(./Fonts/OpenSans-Medium.woff2) format("woff2")
+}
+
+@font-face {
+  font-family: 'OpenSans-Regular';
+  src: 
+    url(./Fonts/OpenSans-Regular.woff) format("woff"),
+    url(./Fonts/OpenSans-Regular.woff2) format("woff2")
+}
+
+@font-face {
+  font-family: 'Montserrat-Light';
+  src: 
+    url(./Fonts/Montserrat-Light.woff) format("woff")
+}
+
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: 
+    url(./Fonts/Montserrat-Medium.woff) format("woff")
+}
+
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: 
+    url(./Fonts/Montserrat-Regular.woff) format("woff")
+}
+
+
 

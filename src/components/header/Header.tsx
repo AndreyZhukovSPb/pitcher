@@ -8,9 +8,12 @@ import Navigation from '../Navigation/Navigation';
 interface headerProps {
   headerType: string,
   onClick?: () => void,
+  isPark? : boolean,
+  isMayak?: boolean,
+  isMain?: boolean
 }
 
-const Header: React.FC<headerProps> = ({headerType}) => {
+const Header: React.FC<headerProps> = ({headerType, isMayak, isPark, isMain}) => {
   return (
       <header className = {`header ${headerType}`}>
         <Navigation
@@ -18,15 +21,20 @@ const Header: React.FC<headerProps> = ({headerType}) => {
           secondTitle='Гайд по завариванию'
           fisrtLink='/shop'
           secondLink='/guide'
+          isMain={isMain}
         />
         <Link to='/'>
-          <img src={logo1} alt="logo" className="header_logo"/>
+          <img src={logo1} alt="logo" className={`header__logo ${isMain ? 'header__logo_type_main' : ''}`}/>
+          
         </Link>
         <Navigation
           firstTitle='Парк Победы'
           secondTitle='Маяковская'
           fisrtLink='/park'
           secondLink='/mayak'
+          isMayak={isMayak}
+          isPark={isPark}
+          isMain={isMain}
         />
       </header>
   )

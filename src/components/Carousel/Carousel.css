@@ -1,8 +1,12 @@
 .carousel {
   overflow: hidden;
-  color: black;
+  color: white;
   position: relative;
-  height: calc(85vh - 80px);
+  height: 100vh
+}
+
+.box {
+  position: relative;
 }
 
 .carousel__item {
@@ -24,12 +28,10 @@
 
 .carousel__inner {
   white-space: nowrap;
-  transition: transform 1s;
+  transition: transform 1.5s ease; 
   position: relative;
   height: 100%;
 }
-
-
 
 .sellPicture {
   position: relative;
@@ -43,16 +45,13 @@
 
 .carousel_button {
   position: absolute;
-  bottom: 150px;
-  left: 150px;
+  bottom: 85px;
+  right: 100px;
   height: 50px;
   width: 120px;
   font-family: 'Inter';
   font-style: normal;
   /* font-weight: 500; */
-  font-size: 12px;
-  line-height: 1.33;
-  letter-spacing: 0.5px;
   background-color: #3DDC84;
   color: #000000;;
   border: none;
@@ -60,7 +59,23 @@
   transition: opacity 0.4s linear;
   cursor: pointer;
   display: inline-block;
-  opacity: 0.9;
+  opacity: 0.8;
+  font-family: 'mont_extralightdemo';
+  font-family: 'mont_heavydemo';
+  font-family: 'BebasNeue-Book';
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.carousel_buttonText {
+  margin: 0;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 19px;
+  left: 39px;
+  font-family: 'mont_extralightdemo';
+  font-family: 'Mont-Regular';
 }
 
 .carousel__photo {
@@ -69,16 +84,41 @@
 }
 
 .carousel__text {
-  position: absolute;
-  top: 100px;
-  left: 150px;
   font-style: normal;
-  /* font-weight: 400; */
-  font-size: 22px;
+  font-weight: 400;
+  font-size: 20px;
   line-height: 1.29;
-  width: 400px;
+  width: 450px;
   white-space: normal;
+  margin: 0 0 5px;
+  line-height: 1.4;
+  letter-spacing: 0.8px;
+  /* font-family: 'mont_extralightdemo'; */
+  /* font-family: 'OpenSans-Medium';
+  font-family: 'OpenSans-Regular'; */
+  /* font-family: 'Mont-Regular'; */
+  font-family: 'Montserrat-Regular';
+  font-family: 'Montserrat-Medium';
+  /* font-family: 'Montserrat-Light'; */
 }
+
+.carousel__textContainer {
+  position: absolute;
+  top: 110px;
+  left: 100px;
+}
+
+.carousel__textContainer_type_second {
+  /* top: 590px; */
+  bottom: 120px;
+  top: auto;
+}
+
+.carousel__textContainer_type_third {
+  top: 120px;
+  left: 290px;
+}
+
 
 .carousel__wrapButton {
   z-index: 2;
@@ -90,6 +130,7 @@
   background: transparent;
   opacity: 0;
   transition: opacity ease 1.5s;
+  cursor: pointer;
 }
 
 
