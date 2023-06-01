@@ -53,6 +53,7 @@
   font-style: normal;
   /* font-weight: 500; */
   background-color: #3DDC84;
+  background-color: #1D96F1;
   color: #000000;;
   border: none;
   border-radius: 5px;
@@ -70,7 +71,7 @@
 
 .carousel_buttonText {
   margin: 0;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   position: absolute;
   top: 19px;
   left: 39px;

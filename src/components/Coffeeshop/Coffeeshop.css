@@ -13,8 +13,8 @@
     column-gap: 25px;
     grid-template: 
       "menu info" 
-      "menu map" / 2fr 3fr;
-    grid-template-rows: 1fr 2fr;
+      "menu map" / 3fr 3fr;
+    grid-template-rows: 3fr 4fr;
     margin: 16px 0;
     /* height: calc(60vh + 42px); */
     height: 40.5vw;
@@ -33,14 +33,18 @@
   height: 100%;
 }
 
-.coffeeshop__content {
+.coffeeshop__title {
   margin: 5px 0 0 0;
   font-size: 16px;
-  
 }
 
-.coffeeshop__content:last-of-type {
-  margin-top: 10px;
+.coffeeshop__title:nth-of-type(2) {
+  margin-bottom: 10px;
+}
+
+.coffeeshop__content {
+  /* margin-top: 10px; */
+  margin: 0 0 6px;
   line-height: 1.4;
   letter-spacing: 0.8px;
   font-family: 'mont_extralightdemo';

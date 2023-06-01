@@ -31,7 +31,10 @@ const Coffeeshop: React.FC<coffeeshopProps> = ( {isMayak, isPark = () => {}} ) =
     map?: string,
     title?: string,
     shcedule?: string,
-    content?: string
+    content_1?: string,
+    content_2?: string,
+    content_3?: string,
+    content_4?: string
   }>({})
 
   useEffect(() => {
@@ -85,9 +88,12 @@ const Coffeeshop: React.FC<coffeeshopProps> = ( {isMayak, isPark = () => {}} ) =
       <div className="coffeeshop__infoContainer">
         <img src={menu} alt="меню" className="coffeeshop__menu" />
         <div className="coffeeshop__info">
-          <p className="coffeeshop__content">{currentShopData.title}</p>
-          <p className="coffeeshop__content">{currentShopData.shcedule}</p>
-          <p className="coffeeshop__content"> {currentShopData.content}</p>
+          <p className="coffeeshop__title">{currentShopData.title}</p>
+          <p className="coffeeshop__title">{currentShopData.shcedule}</p>
+          <p className="coffeeshop__content"> {currentShopData.content_1}</p>
+          <p className="coffeeshop__content"> {currentShopData.content_2}</p>
+          <p className="coffeeshop__content"> {currentShopData.content_3}</p>
+          <p className="coffeeshop__content"> {currentShopData.content_4}</p>
         </div>
         <div className="coffeeshop__map">
           <iframe
