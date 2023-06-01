@@ -6,7 +6,6 @@
   width: 100%;
   background-color: white;
   font-family: 'Mont-Regular';
-  
 }
 
 .footer__container {
@@ -90,6 +89,7 @@
   color: #424242;
   text-align: center;
   letter-spacing: 0.8px;
+  font-family: 'Montserrat-Regular';
 }
 
 .footer__title {
