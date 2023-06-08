@@ -69,7 +69,7 @@
 }
 
 .footer__coffeshopsBox {
-  width: 270px;
+  width: 280px;
   display: flex;
   justify-content: space-between;
   letter-spacing: 0.8px;
@@ -92,34 +92,88 @@
   font-family: 'Montserrat-Regular';
 }
 
-.footer__title {
-  margin: 0 0 20px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 1.2;
-  text-align: center;
-  color: #8B8B8B;
+
+@media screen and (max-width: 1279px)  {
+  .footer__coffeshopsTitle {
+    font-size: 14px;
+  }
+  .footer__content {
+    font-size: 11px;
+  }
+  .footer__contacts {
+    font-size: 14px;
+  }
+  .footer__content_type_adres {
+    margin-top: 10px;
+  }
+  .footer__contactbox {
+    margin-top: 10px;
+  }
+  .footer__copyright {
+    font-size: 12px;
+  }
+  .footer__coffeshopsBox {
+    width: 245px;
+  }
 }
 
-.footer__link {
-  color: white;
-  text-decoration: none;
-  margin-right: 20px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 1.2;
-  transition: opacity 0.4s linear;
+@media screen and (max-width: 1024px)  {
+  .footer__coffeshopsTitle {
+    font-size: 12px;
+  }
+  .footer__content {
+    font-size: 10px;
+  }
+  .footer__contacts {
+    font-size: 12px;
+  }
+  .footer__content_type_adres {
+    margin-top: 9px;
+  }
+  .footer__contactbox {
+    margin-top: 9px;
+  }
+  .footer__copyright {
+    font-size: 11px;
+    margin: 0 0 15px 0;
+  }
+  .footer__coffeshopsBox {
+    width: 235px;
+  }
+  .footer__container {
+    padding: 20px 3vw 1vw 3vw; 
+  }
 }
 
-.footer__link:last-of-type {
-  margin-right: 0;
+@media screen and (max-width: 899px)  {
+  .footer__coffeshopsTitle {
+    font-size: 11px;
+  }
+  .footer__content {
+    font-size: 9px;
+  }
+  .footer__contacts {
+    font-size: 11px;
+  }
+  .footer__content_type_adres {
+    margin-top: 8px;
+  }
+  .footer__contactbox {
+    margin-top: 8px;
+  }
+  .footer__copyright {
+    font-size: 10px;
+    margin: 0 0 13px 0;
+  }
+  .footer__coffeshopsBox {
+    width: 225px;
+  }
+  .footer__container {
+    padding: 20px 3vw 1vw 3vw; 
+  }
 }
 
-.footer__link:hover {
-  opacity: 0.5;
-}
+
 
 
 /* 

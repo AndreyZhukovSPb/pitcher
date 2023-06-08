@@ -29,7 +29,6 @@ function App() {
             path="/"
             element={
               <>
-                
                 <CarouselBox />
                 <Stores />
                 <About />

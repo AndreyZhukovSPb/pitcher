@@ -28,20 +28,6 @@
   width: 100%;
 }
 
-/* @media screen and (max-width: 1279px) {
-  .header {
-    max-width: 708px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .header {
-    max-width: 292px;
-  }
-}
-
-*/
-
 .header__logo {
   height: 50px;
   margin: 20px auto 12px;
@@ -58,6 +44,23 @@
 }
 
 
+@media screen and (max-width: 1023px) {
+  .header {
+    height: 70px;    
+  }
+  .header__logo {
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 899px) {
+  .header {
+    height: 60px;    
+  }
+  .header__logo {
+    height: 35px;
+  }
+}
 
 
 /* 
