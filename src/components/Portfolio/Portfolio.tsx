@@ -44,7 +44,7 @@ useEffect(() => {
     <section className='portfolio'>
       <h2 className='portfolio__title'>Последние новости из жизни Picther</h2>
       <div className='portfolio__photoContainer'>
-        {allPhoto.slice(0, 10).map((item) => (  
+        {allPhoto.slice(0, 16).map((item) => (  
           <Photo
             key={item.id}
             image={item.media_url}
