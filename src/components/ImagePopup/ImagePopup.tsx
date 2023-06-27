@@ -3,10 +3,9 @@ import './ImagePopup.css'
 import { useState, useEffect, useRef } from 'react'
 
 interface MyType {
-    id: number,
     image: string,
-    cols: number,
-    rows: number
+    cols?: number,
+    rows?: number
 }
 
 interface ImagePopupProps {
@@ -65,6 +64,42 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {arrayOfImages, isOpen, item, on
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [currentImage]);
+
+  const [touchPosition, setTouchPosition] = useState(null)
+
+  const handleTouchStart = (e: any) => {
+    const touchDown = e.touches[0].clientX
+    setTouchPosition(touchDown)
+  }
+
+  const handleTouchMove = (e: any) => {
+    const touchDown = touchPosition
+    if(touchDown === null) {
+        return
+    }
+    const currentTouch = e.touches[0].clientX
+    const diff = touchDown - currentTouch
+    if (diff > 5) {
+      if(!rightButtonIsVisible) {
+        return
+      } else {
+        updatePhopo(currentImage, 1);
+      }
+    }
+    if (diff < -5) {
+      if (!leftButtonIsVisible) {
+        console.log('мотать некуда налево')
+        return
+      } else {
+        console.log('налево')
+        updatePhopo(currentImage, -1);
+      }
+      
+    }
+    setTouchPosition(null)
+  }
+
+
 
   useEffect(() => {
     if(!item || !arrayOfImages) {
@@ -133,6 +168,8 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {arrayOfImages, isOpen, item, on
 
   return (
     <section
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
       onClick={handleCheckIsOverlay}
       ref={overlayRef}
       className={`popup popup_type_element-photo ${

@@ -13,11 +13,10 @@
     column-gap: 25px;
     grid-template: 
       "menu info" 
-      "menu map" / 3fr 3fr;
-    grid-template-rows: 3fr 4fr;
-    margin: 16px 0;
-    /* height: calc(60vh + 42px); */
-    height: 40.5vw;
+      "menu map" / 3fr 4fr;
+    grid-template-rows: 2fr 3fr;
+    margin: 6px 0 16px;
+    height: calc(44.3vw - 11px);
 }
 
 .coffeeshop__menu {
@@ -51,6 +50,14 @@
   font-size: 14px;
 }
 
+.coffeeshop__content:last-of-type {
+  margin: 0;
+}
+
+.coffeeshop__content_hidden {
+  display: none;
+}
+
 .coffeeshop__map {
   grid-area: map;
   width: 100%;
@@ -69,23 +76,117 @@
   object-position: cover;
 }
 
-
-.coffeeshop__mapLink {
-  color: #eee;
-  font-size: 12px;
-  position: absolute;
-  top:0px;
-}
-
-.coffeeshop__mapLinkSecond {
-  color: #eee;
-  font-size: 12px;
-  position: absolute;
-  top: 14px;
-}
-
-
 .coffeeshop__gallery {
   padding: 0 3vw;
 }
 
+@media screen and (max-width: 1279px) {
+  .coffeeshop__infoContainer {
+    column-gap: 18px;
+    grid-template-rows: 2fr 3fr;
+  }
+  .coffeeshop__title:nth-of-type(2) {
+    font-size: 14px;
+  }
+  .coffeeshop__content {
+    line-height: 1.2;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .coffeeshop__infoContainer {
+    column-gap: 12px;
+    grid-template-rows: 2fr 3fr;
+  }
+  .coffeeshop__title {
+    font-size: 13px;
+  }
+  .coffeeshop__content {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+}
+
+@media screen and (max-width: 899px) {
+  .coffeeshop__info {
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+  .coffeeshop__info {
+    width: 90%;
+  }
+  .coffeeshop__iframe {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .coffeeshop__infoContainer {
+    padding: 0 3vw;
+    margin-top: 0;
+    row-gap: 15px;
+    grid-template: 
+      "info"
+      "map"
+      "menu" 
+      "menu";
+    height: auto;
+  }
+
+  .coffeeshop__title {
+    font-size: 16px;
+  }
+
+  .coffeeshop__title:nth-of-type(2) {
+    font-size: 13px;
+  }
+
+  .coffeeshop__content {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .coffeeshop__info {
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+  .coffeeshop__info {
+    width: 95%;
+  }
+  .coffeeshop__iframe {
+    width: 95%;
+    height: 230px;
+  }
+  .coffeeshop__gallery {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .coffeeshop__picture:last-of-type::before {
+    content: '+10';
+    font-size: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6f706f;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .coffeeshop__title {
+    font-size: 15px;
+  }
+  .coffeeshop__title:nth-of-type(2) {
+    font-size: 12px;
+  }
+  .coffeeshop__content {
+    font-size: 13px;
+  }
+}

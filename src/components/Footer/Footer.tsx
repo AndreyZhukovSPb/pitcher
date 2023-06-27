@@ -3,6 +3,7 @@ import './Footer.css';
 import phoneIcon from '../../images/phone_new.png';
 import emailIcon from '../../images/email.png';
 import instaIcon from '../../images/insta.png';
+import { Link } from 'react-router-dom';
 
 
 interface FooterProps {
@@ -11,22 +12,24 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = () => {
 
+  // Контакты
+
   return (
     <footer className="footer">
       <div className="footer__container">
-        <ul className='footer__contacts'> 
-          Контакты
+        <ul className='footer__contacts' > 
+          <a className='footer__contacts' href='/contacts'>Контакты</a>  
           <li className='footer__contactbox'>
             <img className='footer__icon' src={phoneIcon} alt="icon phone"/>
-            <p className='footer__content'>+7-931-339-30-43</p>
+            <p className='footer__content footer__content_type_contacts'>+7-931-339-30-43</p>
           </li>
           <li className='footer__contactbox'>
             <img className='footer__icon' src={emailIcon} alt="icon email"/>
-            <p className='footer__content'>pitcherbar@gmail.com</p>
+            <p className='footer__content footer__content_type_contacts'>pitcherbar@gmail.com</p>
           </li>
           <li className='footer__contactbox'>
             <img className='footer__icon' src={instaIcon} alt="icon email"/>
-            <p className='footer__content'>pitcherbar</p>
+            <p className='footer__content footer__content_type_contacts'>pitcherbar</p>
           </li>
         </ul>
         

@@ -1,0 +1,44 @@
+.teammate {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: relative;
+  font-family: 'Mont-Regular';
+  color: black;
+  align-items: center;
+  
+}
+
+.teammate__image {
+  width: 200px;
+  height: 200px;
+}
+
+.teammate__title {
+  margin: 10px 0 0;
+  font-size: 18px;
+  font-family: 'Mont-SemiBold';
+}
+
+.teammate__subTitle {
+  margin: 6px 0 0;
+  font-size: 14px;
+  font-family: 'Mont-SemiBold';
+}
+
+.teammate__subTitle_invisible {
+  display: none;
+}
+
+.teammate__about {
+  margin: 6px 0 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1279px) {}
+@media screen and (max-width: 1023px) {}
+@media screen and (max-width: 899px) {}
+@media screen and (max-width: 599px) {}
+@media screen and (max-width: 359px) {}

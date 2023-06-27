@@ -48,9 +48,6 @@
   cursor: pointer;
   display: inline-block;
   opacity: 0.8;
-  font-family: 'mont_extralightdemo';
-  font-family: 'mont_heavydemo';
-  font-family: 'BebasNeue-Book';
   font-size: 12px;
   font-weight: 600;
 }
@@ -63,9 +60,6 @@
 .carousel_buttonText {
   margin: 0;
   letter-spacing: 0.8px;
-  position: absolute;
-  top: 19px;
-  left: 39px;
   font-family: 'mont_extralightdemo';
   font-family: 'Mont-Regular';
 }
@@ -85,13 +79,8 @@
   margin: 0 0 5px;
   line-height: 1.4;
   letter-spacing: 0.8px;
-  /* font-family: 'mont_extralightdemo'; */
-  /* font-family: 'OpenSans-Medium';
-  font-family: 'OpenSans-Regular'; */
-  /* font-family: 'Mont-Regular'; */
   font-family: 'Montserrat-Regular';
   font-family: 'Montserrat-Medium';
-  /* font-family: 'Montserrat-Light'; */
 }
 
 .carousel__textContainer {
@@ -200,8 +189,28 @@
   .carousel__text {
     font-size: 13px;
   }
-  }
+}
 
+@media screen and (max-width: 767px) {
+  .carousel {
+    height: 100vh
+  }
+  .carousel_button {
+    bottom: 50px;
+    right: 30px;
+    left: 30px;
+    height: 50px;
+    opacity: 0.9;
+    width: calc(100vw - 60px);
+  }
+  .carousel_buttonText {
+    letter-spacing: 1.2px;
+    font-family: 'Mont-Regular';
+    font-style: normal;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+}
 
 
 
