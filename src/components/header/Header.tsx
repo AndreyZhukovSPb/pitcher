@@ -1,6 +1,8 @@
 import React from 'react';
 // import logo1 from '../../images/logo-new.svg';
 import logo1 from '../../images/logo-new.svg';
+import logo2 from '../../images/logo_mobile.svg';
+import logo3 from '../../images/logo_mobile_v_2.svg';
 import './Header.css'
 import { Link } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
@@ -10,10 +12,11 @@ interface headerProps {
   onClick?: () => void,
   isPark? : boolean,
   isMayak?: boolean,
-  isMain?: boolean
+  isMain?: boolean,
+  isContacts?: boolean
 }
 
-const Header: React.FC<headerProps> = ({headerType, isMayak, isPark, isMain}) => {
+const Header: React.FC<headerProps> = ({headerType, isMayak, isPark, isMain, isContacts}) => {
   return (
       <header className = {`header ${headerType}`}>
         <Navigation
@@ -22,10 +25,11 @@ const Header: React.FC<headerProps> = ({headerType, isMayak, isPark, isMain}) =>
           fisrtLink='/shop'
           secondLink='/guide'
           isMain={isMain}
+          isForBurger={false}
         />
         <Link to='/'>
           <img src={logo1} alt="logo" className={`header__logo ${isMain ? 'header__logo_type_main' : ''}`}/>
-          
+          <img src={logo2} alt="logo" className={`header__logo header__logo_mobile ${isMain ? 'header__logo_type_main' : ''}`}/>
         </Link>
         <Navigation
           firstTitle='Парк Победы'
@@ -35,6 +39,8 @@ const Header: React.FC<headerProps> = ({headerType, isMayak, isPark, isMain}) =>
           isMayak={isMayak}
           isPark={isPark}
           isMain={isMain}
+          isContacts={isContacts}
+          isForBurger={true}
         />
       </header>
   )

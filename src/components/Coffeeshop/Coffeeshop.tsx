@@ -1,55 +1,114 @@
-import React from 'react';
-import './Coffeeshop.css';
-import menu from '../../images/menu_new.png';
-import { ImageList, ImageListItem, createTheme, ThemeProvider } from '@mui/material';
-import {useState, useEffect} from 'react'
-import useViewportSizes from 'use-viewport-sizes'
-import Footer from '../../components/Footer/Footer';
-import ImagePopup from '../ImagePopup/ImagePopup';
-import { mayakImages, parkImages, dataMayak, dataPark } from '../../utils/constants'
-import SectionLine from '../SectionLine/SectionLine';
+import React from "react";
+import "./Coffeeshop.css";
+// import menu from '../../images/Menu_Park.png';
+import menu from "../../images/nemu_v_1.jpeg";
+import {
+  ImageList,
+  ImageListItem,
+  createTheme,
+  ThemeProvider,
+} from "@mui/material";
+import { useState, useEffect } from "react";
+import useViewportSizes from "use-viewport-sizes";
+import Footer from "../../components/Footer/Footer";
+import ImagePopup from "../ImagePopup/ImagePopup";
+import {
+  mayakImages,
+  parkImages,
+  dataMayak,
+  dataPark,
+  mayakImagesMobile,
+  parkImagesMobile,
+} from "../../utils/constants";
+import SectionLine from "../SectionLine/SectionLine";
+import Team from "../Team/Team";
+import { useMediaQuery } from "react-responsive";
 
 interface coffeeshopProps {
-  isMayak: boolean
-  isPark: boolean
+  isMayak: boolean;
+  isPark: boolean;
 }
 
-const Coffeeshop: React.FC<coffeeshopProps> = ( {isMayak, isPark = () => {}} ) => {  
+const Coffeeshop: React.FC<coffeeshopProps> = ({ isPark, isMayak }) => {
   const [vpWidth] = useViewportSizes({ dimension: "w" });
   const [currentSize, setCurrentSize] = React.useState<number>();
   const [isPopupOpen, setIsPopupOpen] = React.useState<boolean>(false);
-  const [currentPhoto, setCurrentPhoto] = React.useState<string>('');
+  const [currentPhoto, setCurrentPhoto] = React.useState<string>("");
 
-  const [currentPictures, setCurrentPictures] = React.useState<Array<{
-    id: number,
-    image: string,
-    cols: number,
-    rows: number
-  }>>([]);
+  const isTablet = useMediaQuery({
+    query: `(max-width: 899px) and (min-width: 768px)`,
+  });
+  const isMobile = useMediaQuery({ query: `(max-width: 767px)` });
+  const isSmallMobile = useMediaQuery({ query: `(max-width: 599px)` });
 
-  const [currentShopData, setCurrentShopData] = React.useState<{
-    map?: string,
-    title?: string,
-    shcedule?: string,
-    content_1?: string,
-    content_2?: string,
-    content_3?: string,
-    content_4?: string
-  }>({})
+  interface MyTypeSizeData {
+    itemsToShow?: number;
+    columnsToShow?: number;
+    currentGap?: number;
+  }
+
+  interface MyTypeImageArray {
+    image: string;
+    cols?: number;
+    rows?: number;
+  }
+
+  interface MyTypeData {
+    map?: string;
+    map_tablet?: string;
+    map_mobile?: string;
+    title?: string;
+    shcedule?: string;
+    shcedule_tablet?: string;
+    content_1?: string;
+    content_1_tablet?: string;
+    content_2?: string;
+    content_2_tablet?: string;
+    content_3?: string;
+    content_4?: string;
+  }
+
+  const [currentSizeData, setCurrentSizeData] = React.useState<MyTypeSizeData>(
+    {}
+  );
+  const [currentPictures, setCurrentPictures] = React.useState<
+    Array<MyTypeImageArray>
+  >([]);
+  const [currentShopData, setCurrentShopData] = React.useState<MyTypeData>({});
+
+  function setCoffeeShopData(
+    imageArray: Array<MyTypeImageArray>,
+    data: MyTypeData
+  ) {
+    setCurrentPictures(imageArray);
+    setCurrentShopData(data);
+  }
+
+  function setSizeData(data: MyTypeSizeData) {
+    setCurrentSizeData(data);
+  }
+
+  useEffect(() => {
+    if (!isMobile) {
+      setSizeData({ itemsToShow: 16, columnsToShow: 6, currentGap: 6 });
+      if (isMayak) {
+        setCoffeeShopData(mayakImages, dataMayak);
+      } else if (isPark) {
+        setCoffeeShopData(parkImages, dataPark);
+      }
+    } else {
+      setSizeData({ itemsToShow: 7, columnsToShow: 12, currentGap: 3 });
+      if (isMayak) {
+        setCoffeeShopData(mayakImagesMobile, dataMayak);
+      } else if (isPark) {
+        setCoffeeShopData(parkImagesMobile, dataPark);
+      }
+    }
+  }, [isMobile, isPark, isMayak]);
 
   useEffect(() => {
     setCurrentSize(window.screen.width / 6.734);
   }, [window.screen.width]);
-  
-  useEffect(()=>{
-    if (isMayak) {
-      setCurrentPictures(mayakImages);
-      setCurrentShopData(dataMayak);
-    } else if (isPark) {
-      setCurrentPictures(parkImages);
-      setCurrentShopData(dataPark);
-    } 
-  }, [isPark, isMayak])
 
   const theme = createTheme({
     components: {
@@ -75,112 +134,149 @@ const Coffeeshop: React.FC<coffeeshopProps> = ( {isMayak, isPark = () => {}} ) =
 
   function closePopup() {
     setIsPopupOpen(false);
-    setCurrentPhoto('')
+    setCurrentPhoto("");
   }
 
-  // <p className="coffeeshop__content">м Парк победы. Бассейная 12. </p>
+  console.log(isPark)
 
   return (
     <>
-    <section 
-      className="coffeeshop"
-    >
-      <div className="coffeeshop__infoContainer">
-        <img src={menu} alt="меню" className="coffeeshop__menu" />
-        <div className="coffeeshop__info">
-          <p className="coffeeshop__title">{currentShopData.title}</p>
-          <p className="coffeeshop__title">{currentShopData.shcedule}</p>
-          <p className="coffeeshop__content"> {currentShopData.content_1}</p>
-          <p className="coffeeshop__content"> {currentShopData.content_2}</p>
-          <p className="coffeeshop__content"> {currentShopData.content_3}</p>
-          <p className="coffeeshop__content"> {currentShopData.content_4}</p>
+      <section className="coffeeshop">
+        <div className="coffeeshop__infoContainer">
+          <img src={menu} alt="меню" className="coffeeshop__menu" />
+          <div className="coffeeshop__info">
+            <p className="coffeeshop__title">{currentShopData.title}</p>
+            <p className="coffeeshop__title">
+              {isTablet || isMobile
+                ? currentShopData.shcedule_tablet
+                : currentShopData.shcedule}
+            </p>
+            <p className="coffeeshop__content">
+              {" "}
+              {isTablet && isPark
+                ? currentShopData.content_1_tablet
+                : currentShopData.content_1}
+            </p>
+            <p
+              className={`coffeeshop__content ${
+                isPark && isTablet ? "coffeeshop__content_hidden" : ""
+              }`}
+            >
+              {" "}
+              {isMayak && isTablet
+                ? currentShopData.content_2_tablet
+                : currentShopData.content_2}
+            </p>
+            <p className="coffeeshop__content"> {currentShopData.content_3}</p>
+            <p
+              className={`coffeeshop__content ${
+                isMayak && isTablet ? "coffeeshop__content_hidden" : ""
+              }`}
+            >
+              {" "}
+              {currentShopData.content_4}
+            </p>
+          </div>
+          <div className="coffeeshop__map">
+            <iframe
+              className="coffeeshop__iframe"
+              src={
+                isTablet
+                  ? currentShopData.map_tablet
+                  : isSmallMobile
+                  ? currentShopData.map_mobile
+                  : currentShopData.map
+              }
+              title="2"
+            ></iframe>
+          </div>
         </div>
-        <div className="coffeeshop__map">
-          <iframe
-            className="coffeeshop__iframe"
-            src={currentShopData.map}
-            title="2"
-          ></iframe>
-        </div>
-      </div>
-      <SectionLine />
-      <div className="coffeeshop__gallery">
-        <ImageList
-          // sx={{ height: 100, width: 500 }}
-          variant="quilted"
-          cols={6}
-          // rowHeight='auto'
-          rowHeight={currentSize}
-          gap={6}
-        >
-          {currentPictures.map((item) => (
-            <>
-              <ThemeProvider theme={theme}>
-                <ImageListItem
-                  key={item.image}
-                  cols={item.cols || 1}
-                  rows={item.rows || 1}
-                  onClick={() => { openPopup(item.image); }}
+        <SectionLine />
+        <div className="coffeeshop__gallery">
+          <ImageList
+            // sx={{ height: 100, width: 500 }}
+            variant="quilted"
+            cols={currentSizeData.columnsToShow}
+            // rowHeight='auto'
+            rowHeight={currentSize}
+            gap={currentSizeData.currentGap}
+          >
+            {currentPictures
+              .slice(0, currentSizeData.itemsToShow)
+              .map((item) => (
+                <ThemeProvider
+                  theme={theme}
+                  key={`${currentSizeData.itemsToShow} ${item.image}`}
                 >
-                  <img
-                    // {...srcset(item.image, 121, item.rows, item.cols)}
-                    src={item.image}
-                    alt={item.image}
-                    loading="lazy"
-                    
-                  />
-                </ImageListItem>
-              </ThemeProvider>
-            </>
-          ))}
-        </ImageList>
-      </div>
-      <SectionLine />
-      <Footer />
-    </section>
-    <ImagePopup
-      isOpen={isPopupOpen}
-      item={currentPhoto}
-      onClose={closePopup}
-      arrayOfImages={currentPictures}
-    />
+                  <ImageListItem
+                    cols={item.cols || 1}
+                    rows={item.rows || 1}
+                    onClick={() => {
+                      openPopup(item.image);
+                    }}
+                    className="coffeeshop__picture"
+                  >
+                    <img
+                      // {...srcset(item.image, 121, item.rows, item.cols)}
+                      src={item.image}
+                      alt={item.image}
+                      loading="lazy"
+                    />
+                  </ImageListItem>
+                </ThemeProvider>
+              ))}
+          </ImageList>
+        </div>
+        <SectionLine />
+        <Team
+          isPark={isPark}
+          isMayak={isMayak}
+        />
+        <SectionLine />
+        <Footer />
+      </section>
+      <ImagePopup
+        isOpen={isPopupOpen}
+        item={currentPhoto}
+        onClose={closePopup}
+        arrayOfImages={currentPictures}
+      />
     </>
   );
 };
 
 export default Coffeeshop;
 
-/* 
-<a 
-            href="https://yandex.ru/maps/org/pitcher/1342893163/?utm_medium=mapframe&utm_source=maps" 
-            className='coffeeshop__mapLink'
-            
-          >
-            Pitcher
-          </a>
-          <a 
-            href="https://yandex.ru/maps/2/saint-petersburg/category/coffee_shop/35193114937/?utm_medium=mapframe&utm_source=maps" 
-            className='coffeeshop__mapLinkSecond'
-            
-          >
-            Кофейня в Санкт‑Петербурге
-          </a>
-          <iframe 
-            className='coffeeshop__iframe'
-            src="https://yandex.ru/map-widget/v1/?ll=30.315006%2C59.866315&mode=poi&poi%5Bpoint%5D=30.314715%2C59.866157&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1342893163&z=18.81" 
-            title='park map'
-            width="560" 
-            height="400" 
-            
-            // allowfullscreen="true" 
-          >  
-          </iframe>
+/*
+  const [currentPictures, setCurrentPictures] = React.useState<Array<{
+    id?: number,
+    image: string,
+    cols: number,
+    rows: number
+  }>>([]);
+  
+  const [currentShopData, setCurrentShopData] = React.useState<{
+    map?: string,
+    map_tablet?: string,
+    map_mobile?: string,
+    title?: string,
+    shcedule?: string,
+    shcedule_tablet?: string,
+    content_1?: string,
+    content_1_tablet?: string,
+    content_2?: string,
+    content_2_tablet?: string,
+    content_3?: string,
+    content_4?: string
+  }>({})
 
-          <iframe 
-            className='coffeeshop__iframe'
-            title='1'
-            src="https://yandex.ru/map-widget/v1/?um=constructor%3A5058d6c2e30e12f09aa578a43fad99f62953d7f9986cc58a3caa1c4f228a6580&amp;source=constructor"
-          ></iframe>
-
-    МАЯК      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Abc7e1b8cf696de268bec7da8fdd0fe431bfef2557c5033fb92b8abd51dc18a9c&amp;source=constructor" width="657" height="400" frameborder="0"></iframe>
+  useEffect(()=>{
+    if (isMayak) {
+      setCurrentPictures(mayakImages);
+      setCurrentShopData(dataMayak);
+    } else if (isPark) {
+      setCurrentPictures(parkImages);
+      setCurrentShopData(dataPark);
+    } 
+  }, [isPark, isMayak])
 */

@@ -14,4 +14,8 @@
     border-top: 1px solid rgba(104, 100, 100, 0.4);
     height: 28px;
   }
+  .sectionLine {
+    width: 94vw;
+  }
+  
 }

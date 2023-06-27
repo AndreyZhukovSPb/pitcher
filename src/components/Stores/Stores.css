@@ -111,7 +111,6 @@
   .stores__title {
     font-size: 15px;
   }
-
   .store__legend {
     font-size: 11px;
   }
@@ -121,6 +120,38 @@
   .stores__grid {
     margin-top: 14px;
     gap: 8px 14px;
+  }  
+}
+
+@media screen and (max-width: 767px) {
+  .stores__grid {
+    display: grid;
+    width: 100%;
+    grid-template: 
+      "legend_1 legend_1"
+      "store_1_1 store_1_2"
+      "legend_2 legend_2"
+      "store_2_3 store_2_2"
+  }
+  .box3{
+    display: none;
+  }
+  .store__legend {
+    font-size: 14px;
+  }
+  .box7 {
+    margin-top: 10px;
+  }
+  .stores__container {
+    padding: 30px 4vw 30px 4vw;
+    height: 100%;
   }
   
+  
 }
+
+/*
+grid-template: 
+      "store_1_1 store_1_2 store_2_1 store_2_2 store_2_3" 
+      "legend_1 legend_1 legend_2 legend_2 legend_2" / 1fr 1fr 1fr 1fr 1fr
+*/

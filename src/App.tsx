@@ -14,6 +14,7 @@ import Footer from './components/Footer/Footer';
 import Coffeeshop from './components/Coffeeshop/Coffeeshop';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import SectionLine from './components/SectionLine/SectionLine';
+import Contacts from './components/Contacts/Contacts';
 // import { Switch } from 'react-router-dom';
 
 
@@ -41,12 +42,22 @@ function App() {
             }
           />
           <Route
+            path="/contacts"
+            element={
+              <>
+                <Header headerType="" isContacts={true}/>
+                <SectionLine isMain={false} />
+                <Contacts />
+              </>
+            }
+          />
+          <Route
             path="/park"
             element={
               <>
                 <Header headerType="main_header" isPark={true} />
                 <SectionLine isMain={false} />
-                <Coffeeshop isMayak={false} isPark={true} />
+                <Coffeeshop isMayak={false} isPark={true}/>
               </>
             }
           />
@@ -56,7 +67,7 @@ function App() {
               <>
                 <Header headerType="main_header" isMayak={true} />
                 <SectionLine isMain={false} />
-                <Coffeeshop isMayak={true} isPark={false} />
+                <Coffeeshop isMayak={true} isPark={false}/>
               </>
             }
           />

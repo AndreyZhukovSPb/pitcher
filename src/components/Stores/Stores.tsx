@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Stores.css'
-import coffeeShop_1 from '../../images/park_2.jpg'
-import coffeeShop_2 from '../../images/park_1.jpg'
-import coffeeShop_3 from '../../images/mayak_2.jpg'
-import coffeeShop_4 from '../../images/mayak_1.jpg'
-import coffeeShop_5 from '../../images/mayak_3.jpg'
+import coffeeShop_1 from '../../images/Park_16.jpg'
+import coffeeShop_2 from '../../images/Park_11.jpg'
+import coffeeShop_3 from '../../images/Mayak_3.JPG'
+import coffeeShop_4 from '../../images/Mayak_10.JPG'
+import coffeeShop_5 from '../../images/Mayak_17.JPG'
 
 interface StoresProps {
   
