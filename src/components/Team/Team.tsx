@@ -3,6 +3,7 @@ import "./Team.css";
 import { useState, useEffect } from "react";
 import { parkStaff, textTeam } from "../../utils/constants";
 import Teammate from "../Teammate/Teammate";
+import { MyTypeTeam } from "../SharedTypes/SharedTypes"
 
 interface TeamProps {
   isMayak: boolean;
@@ -10,16 +11,6 @@ interface TeamProps {
 }
 
 const Team: React.FC<TeamProps> = ({ isMayak, isPark }) => {
-  interface MyTypeTeam {
-    id: number;
-    image: string;
-    name: string;
-    role: string;
-    about: string;
-    about_mobile: string;
-    begining?: string
-
-  }
 
   const [currentTeam, setCurrentTeam] = React.useState<Array<MyTypeTeam>>([]);
 
@@ -56,3 +47,15 @@ const Team: React.FC<TeamProps> = ({ isMayak, isPark }) => {
 };
 
 export default Team;
+
+/* 
+interface MyTypeTeam {
+    id: number;
+    image: string;
+    name: string;
+    role: string;
+    about: string;
+    about_mobile: string;
+    begining?: string
+  }
+*/

@@ -1,19 +1,12 @@
 import React from "react";
 import "./Teammate.css";
 import { useMediaQuery } from "react-responsive";
+import { MyTypeTeam } from "../SharedTypes/SharedTypes"
 
 
-interface TeammateProps {
-  id: number,
-  image: string,
-  name: string,
-  role: string,
-  about: string,
-  about_mobile: string;
-  begining?: string
-}
 
-const Teammate: React.FC<TeammateProps> = ({id, image, name, role, about, begining, about_mobile}) => {
+
+const Teammate: React.FC<MyTypeTeam> = ({id, image, name, role, about, begining, about_mobile}) => {
   const isMobile = useMediaQuery({ query: `(max-width: 599px)` });
   
   return (
@@ -27,4 +20,16 @@ const Teammate: React.FC<TeammateProps> = ({id, image, name, role, about, begini
   )
 }
 
-export default Teammate
+export default Teammate;
+
+/*
+interface TeammateProps {
+  id: number,
+  image: string,
+  name: string,
+  role: string,
+  about: string,
+  about_mobile: string;
+  begining?: string
+}
+*/
