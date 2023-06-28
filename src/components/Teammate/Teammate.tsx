@@ -1,5 +1,7 @@
 import React from "react";
 import "./Teammate.css";
+import { useMediaQuery } from "react-responsive";
+
 
 interface TeammateProps {
   id: number,
@@ -7,17 +9,20 @@ interface TeammateProps {
   name: string,
   role: string,
   about: string,
+  about_mobile: string;
   begining?: string
 }
 
-const Teammate: React.FC<TeammateProps> = ({id, image, name, role, about, begining}) => {
+const Teammate: React.FC<TeammateProps> = ({id, image, name, role, about, begining, about_mobile}) => {
+  const isMobile = useMediaQuery({ query: `(max-width: 599px)` });
+  
   return (
     <div className="teammate">
       <img src={image} alt="фото сотрудника" className="teammate__image" />
       <p className="teammate__title">{name}</p>
       <p className="teammate__subTitle">{role}</p>
-      <p className={`teammate__subTitle ${role === "сооснователь" ? 'teammate__subTitle_invisible' : ''} `}>в проекте с {begining} года</p>
-      <p className="teammate__about">{about}</p>
+      <p className={`teammate__subTitle ${role === "сооснователь" ? 'teammate__subTitle_invisible' : ''} `}>в проекте с {begining} {isMobile ? 'г' : 'года'}</p>
+      <p className="teammate__about">{!isMobile? about : about_mobile}</p>
     </div>
   )
 }
