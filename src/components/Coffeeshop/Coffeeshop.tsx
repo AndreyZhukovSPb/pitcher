@@ -23,6 +23,7 @@ import {
 import SectionLine from "../SectionLine/SectionLine";
 import Team from "../Team/Team";
 import { useMediaQuery } from "react-responsive";
+import { MyTypeImage } from "../SharedTypes/SharedTypes"
 
 interface coffeeshopProps {
   isMayak: boolean;
@@ -47,12 +48,6 @@ const Coffeeshop: React.FC<coffeeshopProps> = ({ isPark, isMayak }) => {
     currentGap?: number;
   }
 
-  interface MyTypeImageArray {
-    image: string;
-    cols?: number;
-    rows?: number;
-  }
-
   interface MyTypeData {
     map?: string;
     map_tablet?: string;
@@ -72,12 +67,12 @@ const Coffeeshop: React.FC<coffeeshopProps> = ({ isPark, isMayak }) => {
     {}
   );
   const [currentPictures, setCurrentPictures] = React.useState<
-    Array<MyTypeImageArray>
+    Array<MyTypeImage>
   >([]);
   const [currentShopData, setCurrentShopData] = React.useState<MyTypeData>({});
 
   function setCoffeeShopData(
-    imageArray: Array<MyTypeImageArray>,
+    imageArray: Array<MyTypeImage>,
     data: MyTypeData
   ) {
     setCurrentPictures(imageArray);
@@ -136,8 +131,6 @@ const Coffeeshop: React.FC<coffeeshopProps> = ({ isPark, isMayak }) => {
     setIsPopupOpen(false);
     setCurrentPhoto("");
   }
-
-  console.log(isPark)
 
   return (
     <>
@@ -248,6 +241,12 @@ const Coffeeshop: React.FC<coffeeshopProps> = ({ isPark, isMayak }) => {
 export default Coffeeshop;
 
 /*
+  interface MyTypeImageArray {
+    image: string;
+    cols?: number;
+    rows?: number;
+  }
+
   const [currentPictures, setCurrentPictures] = React.useState<Array<{
     id?: number,
     image: string,

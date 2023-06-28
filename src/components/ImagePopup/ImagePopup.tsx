@@ -1,18 +1,13 @@
 import React from 'react';
 import './ImagePopup.css'
 import { useState, useEffect, useRef } from 'react'
-
-interface MyType {
-    image: string,
-    cols?: number,
-    rows?: number
-}
+import { MyTypeImage } from "../SharedTypes/SharedTypes"
 
 interface ImagePopupProps {
   isOpen: boolean,
   item: string,
   onClose: () => void,
-  arrayOfImages: Array<MyType> 
+  arrayOfImages: Array<MyTypeImage> 
 }
 //const ImagePopup: React.FC<ImagePopupProps> = (isOpen, item, onClose = () => {}) => {
 const ImagePopup: React.FC<ImagePopupProps> = ( {arrayOfImages, isOpen, item, onClose = () => {}} ) => {
@@ -212,6 +207,9 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {arrayOfImages, isOpen, item, on
 export default ImagePopup;
 
 /*
-лево 37
-право 39
+interface MyType {
+    image: string,
+    cols?: number,
+    rows?: number
+}
 */
