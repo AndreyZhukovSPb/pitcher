@@ -1,7 +1,6 @@
 import React from "react";
 import "./Team.css";
 import { useState, useEffect } from "react";
-
 import { parkStaff, textTeam } from "../../utils/constants";
 import Teammate from "../Teammate/Teammate";
 
@@ -17,7 +16,9 @@ const Team: React.FC<TeamProps> = ({ isMayak, isPark }) => {
     name: string;
     role: string;
     about: string;
+    about_mobile: string;
     begining?: string
+
   }
 
   const [currentTeam, setCurrentTeam] = React.useState<Array<MyTypeTeam>>([]);
@@ -46,6 +47,7 @@ const Team: React.FC<TeamProps> = ({ isMayak, isPark }) => {
             role={item.role}
             id={item.id}
             begining={item.begining}
+            about_mobile={item.about_mobile}
           />
         ))}
       </div>
