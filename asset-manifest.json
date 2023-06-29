@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pitcher/static/css/main.7511838c.css",
-    "main.js": "/pitcher/static/js/main.9ac250d6.js",
+    "main.js": "/pitcher/static/js/main.799f468d.js",
     "static/js/787.b44dba70.chunk.js": "/pitcher/static/js/787.b44dba70.chunk.js",
     "static/media/Park_1.JPG": "/pitcher/static/media/Park_1.8a3a700901eba37e65b0.JPG",
     "static/media/Mayak_7.JPG": "/pitcher/static/media/Mayak_7.17c2325e254b36fc6115.JPG",
@@ -77,11 +77,11 @@
     "static/media/header__menu.svg": "/pitcher/static/media/header__menu.111cfc3a3545a9ff785c.svg",
     "static/media/Close Icon.svg": "/pitcher/static/media/Close Icon.b793e07c3f4c19e26c11.svg",
     "main.7511838c.css.map": "/pitcher/static/css/main.7511838c.css.map",
-    "main.9ac250d6.js.map": "/pitcher/static/js/main.9ac250d6.js.map",
+    "main.799f468d.js.map": "/pitcher/static/js/main.799f468d.js.map",
     "787.b44dba70.chunk.js.map": "/pitcher/static/js/787.b44dba70.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7511838c.css",
-    "static/js/main.9ac250d6.js"
+    "static/js/main.799f468d.js"
   ]
 }
