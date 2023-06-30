@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.d86359dc.css",
-    "main.js": "./static/js/main.3160eccd.js",
+    "main.js": "./static/js/main.070fbfe4.js",
     "static/js/787.b44dba70.chunk.js": "./static/js/787.b44dba70.chunk.js",
     "static/media/Park_1.JPG": "./static/media/Park_1.8a3a700901eba37e65b0.JPG",
     "static/media/Mayak_7.JPG": "./static/media/Mayak_7.17c2325e254b36fc6115.JPG",
@@ -28,6 +28,7 @@
     "static/media/Main_Mobile_1.jpg": "./static/media/Main_Mobile_1.090276633ca5c8da7325.jpg",
     "static/media/Mayak_1.JPG": "./static/media/Mayak_1.aad09206d097198a2c78.JPG",
     "static/media/Mayak_3.JPG": "./static/media/Mayak_3.2b9f7e08405966e3597b.JPG",
+    "static/media/Mayak_3.jpg": "./static/media/Mayak_3.2b9f7e08405966e3597b.jpg",
     "static/media/Mayak_6.JPG": "./static/media/Mayak_6.c8e2d80cf9d6f35184a5.JPG",
     "static/media/Mayak_4.JPG": "./static/media/Mayak_4.a84afc6fc293dfc7df21.JPG",
     "static/media/Mayak_10.JPG": "./static/media/Mayak_10.fb537dbeb3740a06a365.JPG",
@@ -77,11 +78,11 @@
     "static/media/header__menu.svg": "./static/media/header__menu.111cfc3a3545a9ff785c.svg",
     "static/media/Close Icon.svg": "./static/media/Close Icon.b793e07c3f4c19e26c11.svg",
     "main.d86359dc.css.map": "./static/css/main.d86359dc.css.map",
-    "main.3160eccd.js.map": "./static/js/main.3160eccd.js.map",
+    "main.070fbfe4.js.map": "./static/js/main.070fbfe4.js.map",
     "787.b44dba70.chunk.js.map": "./static/js/787.b44dba70.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d86359dc.css",
-    "static/js/main.3160eccd.js"
+    "static/js/main.070fbfe4.js"
   ]
 }
