@@ -8,7 +8,7 @@ import mainMobile_3 from '../images/Main_Mobile_3.jpg'
 
 import mayak_1 from '../images/Mayak_1.JPG';
 import mayak_2 from '../images/Mayak_2.JPG';
-import mayak_3 from '../images/Mayak_3.JPG';
+import mayak_3 from '../images/Mayak_3.jpg';
 import mayak_4 from '../images/Mayak_4.JPG';
 import mayak_5 from '../images/Mayak_5.JPG';
 import mayak_6 from '../images/Mayak_6.JPG';
