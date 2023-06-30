@@ -81,22 +81,15 @@ export default App;
 
 /* 
 <SellPicture/> - del?
-попап на открытие фото из инста?
 кнопка еще
-
 сделать чекбоксы индикаторы кружки сколько всего картинок и на какой находимся
 сделать в карусели react-swipeable
-менять color у page в стейте
-импорт картинок переделать
-шрифты поменять?
 проверить что будет если удалить custom.d.ts
 что лежит в headerType?
 типизировать useState, useEffect
 переписать carouselProps - для функций
 карусель разнести на несколько компонентов
 видос на главную?
-конвертировать фотки
-шрифт с блю ботл
 выезжающая шапка как блю ботл
 попробовать переписать апиинста чтобы был бади с токеном
 поставить в галерею инста по умолчанию другие фото 
@@ -106,21 +99,6 @@ IGQVJVb24zc0NPcFdnM3ZAlZA21WVHJTa3JIaG5yTFpHVGN0bUZABbWFERmN1cWtfYmtWNktiZAmozN3
 
 npm i cors - probably will be usefull
 553648129
-вынести константы
-переписать фото чтобы все было в одном условии
-
-
-        <Route path='/'>
-          element={<Header headerType='main_header'/>}
-
-
-          <Header 
-            headerType='main_header'
-          />
-          <CarouselBox/>
-          <Stores/>
-          <About/>
-          <Portfolio/>
-          <Footer/>
-        </Route>
+ "build": "react-scripts build",
+"homepage": "https://AndreyZhukovSPb.github.io/pitcher",
 */

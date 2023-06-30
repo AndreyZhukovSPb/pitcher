@@ -38,6 +38,7 @@ new Api(
 
 export default InstaApi;
 
+// 30.06 token: 'IGQVJXTFZAHQ3ptY2J0TVVoVUYtc045REVtczY3RUZAqb0piMXJ0UXI5d0pOX2RlU25fQWFRMTZAqTmE3ZAzJXN3U2ZAWd0M0dxQ2lrQm9rM2JVSHFRN3VNSjdHOHdocGVKRFV1UnRwSnZAKVlNscXdyVms3QQZDZD'    
 // 'https://api.instagram.com/v1/users/self/media/recent/?access_token=ACCESS_TOKEN'
 // id = 6016571438392691
 // &limit=50
