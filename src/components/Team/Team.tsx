@@ -58,4 +58,5 @@ interface MyTypeTeam {
     about_mobile: string;
     begining?: string
   }
+  "build": "react-scripts build", 
 */
