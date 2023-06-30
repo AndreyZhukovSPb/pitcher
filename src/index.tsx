@@ -10,11 +10,10 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  // <BrowserRouter >
+  // <BrowserRouter></BrowserRouter>
   <HashRouter basename='/'>
     <App />
   </HashRouter>
-    
   // </BrowserRouter>
 );
 
