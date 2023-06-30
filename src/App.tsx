@@ -102,5 +102,6 @@ npm i cors - probably will be usefull
  "build": "react-scripts build",
 "homepage": "https://AndreyZhukovSPb.github.io/pitcher",
 git push origin level-1     
+    "typescript": "^5.1.6",
 */
 
