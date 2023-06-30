@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Stores.css'
 import coffeeShop_1 from '../../images/Park_16.jpg'
 import coffeeShop_2 from '../../images/Park_11.jpg'
-import coffeeShop_3 from '../../images/Mayak_3.JPG'
+import coffeeShop_3 from '../../images/Mayak_3.jpg'
 import coffeeShop_4 from '../../images/Mayak_10.JPG'
 import coffeeShop_5 from '../../images/Mayak_17.JPG'
 

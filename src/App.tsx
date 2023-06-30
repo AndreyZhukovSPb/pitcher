@@ -99,9 +99,10 @@ IGQVJVb24zc0NPcFdnM3ZAlZA21WVHJTa3JIaG5yTFpHVGN0bUZABbWFERmN1cWtfYmtWNktiZAmozN3
 
 npm i cors - probably will be usefull
 553648129
- "build": "react-scripts build",
 "homepage": "https://AndreyZhukovSPb.github.io/pitcher",
 git push origin level-1     
     "typescript": "^5.1.6",
+    "private": true,
+    
 */
 
