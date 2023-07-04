@@ -1,137 +1,106 @@
-import React from 'react';
-import './ImagePopup.css'
-import { useState, useEffect, useRef } from 'react'
-import { MyTypeImage } from "../SharedTypes/SharedTypes"
+import React from "react";
+import "./ImagePopup.css";
+import { useState, useEffect, useRef } from "react";
+import { MyTypeImage } from "../SharedTypes/SharedTypes";
 
 interface ImagePopupProps {
-  isOpen: boolean,
-  item: string,
-  onClose: () => void,
-  arrayOfImages: Array<MyTypeImage> 
+  isOpen: boolean;
+  item: string;
+  onClose: () => void;
+  arrayOfImages: Array<MyTypeImage>;
 }
-//const ImagePopup: React.FC<ImagePopupProps> = (isOpen, item, onClose = () => {}) => {
-const ImagePopup: React.FC<ImagePopupProps> = ( {arrayOfImages, isOpen, item, onClose = () => {}} ) => {
-  /* const [currentPhoto, setCurrentPhoto] = React.useState<string>('');
-  // const [isPopupOpen, setIsPopupOpen] = React.useState<boolean>(false);
-  function closePopup() {
-    // console.log(item)
-    onClose();
-    //setIsPopupOpen(false)
-    //console.log(isOpen)
-    //console.log('tets')
-    // setCurrentPhoto('');
-  }
-  useEffect(() => {
-    if (isPopupOpen) {
-      setIsOpen(true);
-    } else {
-      return;
-    }
-  }, [isPopupOpen]);
-  useEffect(() => {
-    console.log(isOpen);
-    // console.log(item)
-    setIsPopupOpen(isOpen);
-  }, [isOpen]);
-
-  useEffect(() => {
-    // console.log(isOpen.isOpen)
-    console.log(item);
-    //setIsPopupOpen(isOpen.isOpen)
-  }, [item]);
-  */
-
-  const [leftButtonIsVisible, setLeftButtonIsVisible] = React.useState<boolean>(true);
-  const [rightButtonIsVisible, setRightButtonIsVisible] = React.useState<boolean>(true);
-  const [currentImage, setCurrentImage] = React.useState<string>('');
+const ImagePopup: React.FC<ImagePopupProps> = ({
+  arrayOfImages,
+  isOpen,
+  item,
+  onClose = () => {},
+}) => {
+  const [leftButtonIsVisible, setLeftButtonIsVisible] =
+    React.useState<boolean>(true);
+  const [rightButtonIsVisible, setRightButtonIsVisible] =
+    React.useState<boolean>(true);
+  const [currentImage, setCurrentImage] = React.useState<string>("");
   const overlayRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (currentImage === '') {
-      return
-    } else {  
+    if (currentImage === "") {
+      return;
+    } else {
       document.addEventListener("keydown", handleKeyDown);
     }
     function handleKeyDown(e: any) {
-      keyDownHandler(e)
+      keyDownHandler(e);
     }
     return function cleanup() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [currentImage]);
 
-  const [touchPosition, setTouchPosition] = useState(null)
+  const [touchPosition, setTouchPosition] = useState(null);
 
   const handleTouchStart = (e: any) => {
-    const touchDown = e.touches[0].clientX
-    setTouchPosition(touchDown)
-  }
+    const touchDown = e.touches[0].clientX;
+    setTouchPosition(touchDown);
+  };
 
   const handleTouchMove = (e: any) => {
-    const touchDown = touchPosition
-    if(touchDown === null) {
-        return
+    const touchDown = touchPosition;
+    if (touchDown === null) {
+      return;
     }
-    const currentTouch = e.touches[0].clientX
-    const diff = touchDown - currentTouch
+    const currentTouch = e.touches[0].clientX;
+    const diff = touchDown - currentTouch;
     if (diff > 5) {
-      if(!rightButtonIsVisible) {
-        return
+      if (!rightButtonIsVisible) {
+        return;
       } else {
         updatePhopo(currentImage, 1);
       }
     }
     if (diff < -5) {
       if (!leftButtonIsVisible) {
-        console.log('мотать некуда налево')
-        return
+        console.log("мотать некуда налево");
+        return;
       } else {
-        console.log('налево')
+        console.log("налево");
         updatePhopo(currentImage, -1);
       }
-      
     }
-    setTouchPosition(null)
-  }
-
-
+    setTouchPosition(null);
+  };
 
   useEffect(() => {
-    if(!item || !arrayOfImages) {
-      return
+    if (!item || !arrayOfImages) {
+      return;
     }
-    setCurrentImage(item)
-    // checkVisibility(mayakImages.findIndex(image => image.image === item))
-    checkVisibility(arrayOfImages.findIndex(image => image.image === item))
+    setCurrentImage(item);
+    checkVisibility(arrayOfImages.findIndex((image) => image.image === item));
   }, [item]);
 
   function handleClose() {
     setLeftButtonIsVisible(true);
     setRightButtonIsVisible(true);
-    setCurrentImage('')
+    setCurrentImage("");
     onClose();
   }
 
   function updatePhopo(message: string, index: number) {
-    // let newOne = mayakImages.findIndex(image => image.image === message); 
-    let newOne = arrayOfImages.findIndex(image => image.image === message); 
-    // setCurrentImage(mayakImages[newOne + index].image)
-    setCurrentImage(arrayOfImages[newOne + index].image)
-    checkVisibility(newOne + index)
+    let newOne = arrayOfImages.findIndex((image) => image.image === message);
+    setCurrentImage(arrayOfImages[newOne + index].image);
+    checkVisibility(newOne + index);
   }
 
   function checkVisibility(index: number) {
     if (index < 1) {
       setLeftButtonIsVisible(false);
-    // } else if (index >= mayakImages.length - 1) {
-    } else if (index >= arrayOfImages.length - 1) {      
-      setRightButtonIsVisible(false)
+    } else if (index >= arrayOfImages.length - 1) {
+      setRightButtonIsVisible(false);
     } else {
       if (!leftButtonIsVisible) {
         setLeftButtonIsVisible(true);
       }
       if (!rightButtonIsVisible) {
-        setRightButtonIsVisible(true)
+        setRightButtonIsVisible(true);
       }
     }
   }
@@ -141,24 +110,24 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {arrayOfImages, isOpen, item, on
       handleClose();
     }
     if (event.keyCode === 37) {
-      if(!leftButtonIsVisible) {
-        return
+      if (!leftButtonIsVisible) {
+        return;
       }
       updatePhopo(currentImage, -1);
     } else if (event.keyCode === 39) {
       if (!rightButtonIsVisible) {
-        return
+        return;
       }
       updatePhopo(currentImage, 1);
     } else {
-      return
+      return;
     }
   }
 
   function handleCheckIsOverlay(e: any) {
     if (!overlayRef.current || e.target.contains(overlayRef.current)) {
-      handleClose()
-    } 
+      handleClose();
+    }
   }
 
   return (
@@ -170,8 +139,6 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {arrayOfImages, isOpen, item, on
       className={`popup popup_type_element-photo ${
         isOpen && item ? "popup_opened" : ""
       }`}
-      // onKeyDown={(event) => keyDownHandler(event)}
-      
     >
       <div className="popup__photo-container">
         <img className="popup__photo" src={currentImage} alt="фото кофейни" />
@@ -196,20 +163,10 @@ const ImagePopup: React.FC<ImagePopupProps> = ( {arrayOfImages, isOpen, item, on
         }`}
         onClick={() => {
           updatePhopo(currentImage, 1);
-          // setCounter((counter) => (counter = counter + 1));
         }}
       ></button>
-
     </section>
   );
-}
-  
-export default ImagePopup;
+};
 
-/*
-interface MyType {
-    image: string,
-    cols?: number,
-    rows?: number
-}
-*/
+export default ImagePopup;

@@ -6,8 +6,8 @@ import Header from "../header/Header";
 import { useMediaQuery } from "react-responsive";
 
 interface carouselItemProps {
-  children?: any;
-  image?: string;
+  children: any;
+  image: string;
 }
 
 export const CarouselItem: React.FC<carouselItemProps> = ({
@@ -68,7 +68,6 @@ export const CarouselBox: React.FC<{}> = () => {
         ))}
       </Carousel>
     </>
-    // </section>
   );
 };
 
@@ -83,7 +82,7 @@ const Carousel: React.FC<carouselProps> = ({ children }) => {
   const [rightButtonIsVisible, setRightButtonIsVisible] = React.useState(true);
 
   useEffect(() => {
-    if (counter >= sellPictures.length - 1 || !rightButtonIsVisible)  {
+    if (counter >= sellPictures.length - 1 || !rightButtonIsVisible) {
       return;
     } else {
       const interval = setInterval(() => {
@@ -115,40 +114,39 @@ const Carousel: React.FC<carouselProps> = ({ children }) => {
     }
   };
 
-  const [touchPosition, setTouchPosition] = useState(null)
+  const [touchPosition, setTouchPosition] = useState(null);
 
   const handleTouchStart = (e: any) => {
-    const touchDown = e.touches[0].clientX
-    setTouchPosition(touchDown)
-  }
+    const touchDown = e.touches[0].clientX;
+    setTouchPosition(touchDown);
+  };
 
   const handleTouchMove = (e: any) => {
-    const touchDown = touchPosition
-    if(touchDown === null) {
-        return
+    const touchDown = touchPosition;
+    if (touchDown === null) {
+      return;
     }
-    const currentTouch = e.touches[0].clientX
-    const diff = touchDown - currentTouch
+    const currentTouch = e.touches[0].clientX;
+    const diff = touchDown - currentTouch;
     if (diff > 5) {
-      if(!rightButtonIsVisible) {
-        return
+      if (!rightButtonIsVisible) {
+        return;
       } else {
         updateIndex(activeIndex + 1);
       }
     }
     if (diff < -5) {
       if (!leftButtonIsVisible) {
-        console.log('мотать некуда налево')
-        return
+        console.log("мотать некуда налево");
+        return;
       } else {
-        console.log('налево')
-        console.log(currentTouch)
+        console.log("налево");
+        console.log(currentTouch);
         updateIndex(activeIndex - 1);
       }
-      
     }
-    setTouchPosition(null)
-  }
+    setTouchPosition(null);
+  };
 
   return (
     <section className="carousel">

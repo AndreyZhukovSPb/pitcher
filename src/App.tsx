@@ -78,7 +78,6 @@ function App() {
 export default App;
 
 /* 
-<SellPicture/> - del?
 кнопка еще
 сделать чекбоксы индикаторы кружки сколько всего картинок и на какой находимся
 что лежит в headerType?

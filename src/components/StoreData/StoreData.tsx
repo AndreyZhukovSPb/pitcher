@@ -19,10 +19,6 @@ interface StoreDataProps {
 }
 
 const StoreData: React.FC<StoreDataProps> = ({ data, isMayak, isPark }) => {
-  const isTablet = useMediaQuery({
-    query: `(max-width: 899px) and (min-width: 768px)`,
-  });
-  const isMobile = useMediaQuery({ query: `(max-width: 767px)` });
   const isSmallMobile = useMediaQuery({ query: `(max-width: 599px)` });
   console.log(isSmallMobile);
 
@@ -45,11 +41,7 @@ const StoreData: React.FC<StoreDataProps> = ({ data, isMayak, isPark }) => {
         <div className="storeData__map">
           <iframe
             className="storeData__iframe"
-            src={
-              isSmallMobile
-                ? data.map_mobile
-                : data.map
-            }
+            src={isSmallMobile ? data.map_mobile : data.map}
             title="3"
           ></iframe>
         </div>
@@ -59,13 +51,3 @@ const StoreData: React.FC<StoreDataProps> = ({ data, isMayak, isPark }) => {
 };
 
 export default StoreData;
-
-/* 
-src={
-            isTablet
-              ? data.map_tablet
-              : isSmallMobile
-              ? data.map_mobile
-              : data.map
-          }
-*/
