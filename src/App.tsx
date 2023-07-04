@@ -17,10 +17,8 @@ import SectionLine from './components/SectionLine/SectionLine';
 import Contacts from './components/Contacts/Contacts';
 // import { Switch } from 'react-router-dom';
 
-
 function App() {
   const [isStore, setIsStore] = useState(false);
-  // //<Header headerType="main_header" />
   
   return (
     <div className={`page ${isStore ? "page_type_white" : ""}`}>
@@ -83,16 +81,10 @@ export default App;
 <SellPicture/> - del?
 кнопка еще
 сделать чекбоксы индикаторы кружки сколько всего картинок и на какой находимся
-сделать в карусели react-swipeable
-проверить что будет если удалить custom.d.ts
 что лежит в headerType?
 типизировать useState, useEffect
 переписать carouselProps - для функций
 карусель разнести на несколько компонентов
-видос на главную?
-выезжающая шапка как блю ботл
-попробовать переписать апиинста чтобы был бади с токеном
-поставить в галерею инста по умолчанию другие фото 
 
 token
 IGQVJVb24zc0NPcFdnM3ZAlZA21WVHJTa3JIaG5yTFpHVGN0bUZABbWFERmN1cWtfYmtWNktiZAmozN3ZAHRm5hYWNGVjRPbWZAzRmd5NXFtZAnFPb1k0cGduZAjMxcDM1RklEb1dKNlkyR2xiWFJFUkVJMEtwWQZDZD
