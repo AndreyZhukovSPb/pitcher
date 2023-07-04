@@ -11,7 +11,7 @@ interface mobileMenuProps {
   isMayak?: boolean;
   isShop?: boolean;
   isGuide?: boolean;
-  isContacts?: boolean
+  isContacts?: boolean;
 }
 
 const MobileMenu: React.FC<mobileMenuProps> = ({
@@ -22,7 +22,7 @@ const MobileMenu: React.FC<mobileMenuProps> = ({
   isPark,
   isShop,
   isGuide,
-  isContacts
+  isContacts,
 }) => {
   const overlayRef = React.useRef<HTMLDivElement>(null);
 
@@ -107,7 +107,3 @@ const MobileMenu: React.FC<mobileMenuProps> = ({
 };
 
 export default MobileMenu;
-
-/* 
-<Link to='/park' className={`navigation__link ${isPark ? 'navigation__link_active' : ''} ${isMain ? 'navigation__link_type_main' : ''}`}>{firstTitle}</Link>
-*/

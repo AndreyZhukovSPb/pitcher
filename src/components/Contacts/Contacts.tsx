@@ -2,21 +2,11 @@ import React from "react";
 import "./Contacts.css";
 import StoreData from "../StoreData/StoreData";
 import { dataMayak, dataPark } from "../../utils/constants";
-import { useMediaQuery } from "react-responsive";
 import phoneIcon from "../../images/phone_new.png";
 import emailIcon from "../../images/email.png";
 import instaIcon from "../../images/insta.png";
 
-interface ContactsProps {
-  
-}
-
-const Contacts: React.FC<ContactsProps> = (isContacts) => {
-  const isTablet = useMediaQuery({
-    query: `(max-width: 899px) and (min-width: 768px)`,
-  });
-  const isMobile = useMediaQuery({ query: `(max-width: 767px)` });
-  const isSmallMobile = useMediaQuery({ query: `(max-width: 599px)` });
+const Contacts: React.FC = () => {
 
   return (
     <section className="contacts">
@@ -24,7 +14,6 @@ const Contacts: React.FC<ContactsProps> = (isContacts) => {
         <StoreData data={dataPark} isPark={true} />
         <StoreData data={dataMayak} isMayak={true} />
       </div>
-
       <ul className="contacts__data">
         <li className="contacts__contactbox">
           <img className="contacts__icon" src={phoneIcon} alt="icon phone" />
