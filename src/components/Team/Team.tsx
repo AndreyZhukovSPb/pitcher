@@ -48,15 +48,3 @@ const Team: React.FC<TeamProps> = ({ isMayak, isPark }) => {
 
 export default Team;
 
-/* 
-interface MyTypeTeam {
-    id: number;
-    image: string;
-    name: string;
-    role: string;
-    about: string;
-    about_mobile: string;
-    begining?: string
-  }
-  "build": "react-scripts build", 
-*/
