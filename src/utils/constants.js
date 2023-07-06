@@ -43,7 +43,6 @@ import park_16 from '../images/Park_16.jpg';
 
 import mayakStaff_1 from '../images/Vera_Main.png';
 
-
 const sellPictures = [
   {
     pictureId: 201,

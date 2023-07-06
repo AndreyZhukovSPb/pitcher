@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Carousel.css";
 import { sellPictures, sellPicturesMobile } from "../../utils/constants";
 import { Link } from "react-router-dom";
-import Header from "../header/Header";
+import Header from "../Header/Header";
 import { useMediaQuery } from "react-responsive";
 
 interface carouselItemProps {

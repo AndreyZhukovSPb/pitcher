@@ -2,7 +2,7 @@ import React from "react";
 // import logo1 from '../../images/logo-new.svg';
 import logo1 from "../../images/logo-new.svg";
 import logo2 from "../../images/logo_mobile.svg";
-import "./Header.css";
+import "./Header.css"
 import { Link } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 

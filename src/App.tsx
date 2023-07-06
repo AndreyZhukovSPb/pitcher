@@ -1,10 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { Routes, Route } from "react-router-dom";
-
 import './App.css';
-import './components/header/Header.css'
-import Header from './components/header/Header';
+// import './components/header/Header.css'
+import Header from './components/Header/Header';
 import {CarouselBox} from './components/Carousel/Carousel';
 import Stores from './components/Stores/Stores';
 import About from './components/About/About';
@@ -78,7 +77,7 @@ function App() {
 export default App;
 
 /* 
-кнопка еще
+плавное закрытие бургерного меню при переходе на другую страницу
 сделать чекбоксы индикаторы кружки сколько всего картинок и на какой находимся
 что лежит в headerType?
 типизировать useState, useEffect
