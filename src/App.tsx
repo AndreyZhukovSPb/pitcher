@@ -14,6 +14,7 @@ import Coffeeshop from './components/Coffeeshop/Coffeeshop';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import SectionLine from './components/SectionLine/SectionLine';
 import Contacts from './components/Contacts/Contacts';
+import Main from './components/Main/Main';
 // import { Switch } from 'react-router-dom';
 
 function App() {
@@ -27,13 +28,8 @@ function App() {
             path="/"
             element={
               <>
-                <CarouselBox />
-                <Stores />
-                <About />
-                <Portfolio />
-                <SectionLine
-                  isMain={true}
-                />
+                <Header headerType="main_header header__type_main" isMain={true} />
+                <Main />
                 <Footer />
               </>
             }
@@ -77,6 +73,8 @@ function App() {
 export default App;
 
 /* 
+del insta api
+children: any CorouselBox
 плавное закрытие бургерного меню при переходе на другую страницу
 сделать чекбоксы индикаторы кружки сколько всего картинок и на какой находимся
 что лежит в headerType?

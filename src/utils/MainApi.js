@@ -1,15 +1,31 @@
 class Api {
-  constructor({baseUrl, token}) {
+  constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
   }
 
   _getHeaders(){
     return {
-        authorization: this._token,
+        // authorization: this._token,
         'content-type': 'application/json',
     }
   }
+
+  _getJsonOrError(res){
+    if (res.ok){
+        return res.json();
+    }
+    return Promise.reject({status: res.status})
+  }
+
+  getMainPhoto() {
+    return fetch(`${this._baseUrl}`, {
+      method: 'GET',
+      headers: this._getHeaders()
+    })
+    .then(this._getJsonOrError)
+  }
   
+  /* 
   sendMovie (movie, currentUser) {
     return fetch(`${this._baseUrl}/movies`, {
         method: 'POST',
@@ -31,20 +47,12 @@ class Api {
       })
       .then(this._getJsonOrError)
   }
-
+  
   removeMovie(id){
     return fetch(`${this._baseUrl}/movies/${id}`, {
       method: 'DELETE',
       headers: this._getHeaders()
       })
-    .then(this._getJsonOrError)
-  }
-
-  getMovies() {
-    return fetch(`${this._baseUrl}/movies`, {
-      method: 'GET',
-      headers: this._getHeaders()
-    })
     .then(this._getJsonOrError)
   }
 
@@ -60,22 +68,18 @@ class Api {
     .then(this._getJsonOrError)
   }
 
-  _getJsonOrError(res){
-    if (res.ok){
-        return res.json();
-    }
-    return Promise.reject({status: res.status})
-  }
-
   setToken(jwt) {
     this._token = `Bearer ${jwt}`;
   }
+*/
+  
+
+
 }
 
 const MainApi = 
 new Api(  
-  {baseUrl: 'https://api.diploma.zhukov.nomoredomains.club'
-  }
+  {baseUrl: 'http://localhost:4001'}
 )
 
 export default MainApi;

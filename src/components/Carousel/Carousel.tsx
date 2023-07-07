@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Carousel.css";
-import { sellPictures, sellPicturesMobile } from "../../utils/constants";
+// import { sellPictures, sellPicturesMobile } from "../../utils/constants";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
+import { MyTypeMainPhoto } from "../SharedTypes/SharedTypes";
 import { useMediaQuery } from "react-responsive";
+import Api from '../../utils/MainApi'
+
 
 interface carouselItemProps {
   children: any;
@@ -22,31 +25,56 @@ export const CarouselItem: React.FC<carouselItemProps> = ({
   );
 };
 
-export const CarouselBox: React.FC<{}> = () => {
-  const [currentSellPictures, setCurrentSellPictures] = React.useState<
-    Array<{
-      pictureId: number;
-      image: string;
-      text_1: string;
-      text_2: string;
-      text_3: string;
-      number: string;
-    }>
-  >(sellPictures);
+interface carouselBoxProps {
+  mainPictures: Array<MyTypeMainPhoto>
+  mainPicturesMobile: Array<MyTypeMainPhoto>
+}
 
+export const CarouselBox: React.FC<carouselBoxProps> = ({mainPictures, mainPicturesMobile}) => {
   const isMobile = useMediaQuery({ query: `(max-width: 767px)` });
+
+  /*
+  interface MyTypeMainPhoto {
+    pictureId: number;
+    image: string;
+    text_1: string;
+    text_2: string;
+    text_3: string;
+    number: string;
+  }
+  const [mainPictures, setMainPictures] = React.useState<
+    Array<MyTypeMainPhoto>
+    >([]);
+  const [mainPicturesMobile, setMainPicturesMobile] = React.useState<
+    Array<MyTypeMainPhoto>
+    >([]);
+    useEffect(() => {
+    Api.getMainPhoto()
+      .then((res) => {
+        setMainPictures(res.desctopPhoto);
+        setMainPicturesMobile(res.mobilePhoto);
+        console.log(res.istaPhoto.data)
+      })
+  }, []);
+  */ 
+
+  const [currentSellPictures, setCurrentSellPictures] = React.useState<
+    Array<MyTypeMainPhoto>
+    >([]);
 
   useEffect(() => {
     if (isMobile) {
-      setCurrentSellPictures(sellPicturesMobile);
+      setCurrentSellPictures(mainPicturesMobile);
     } else {
-      setCurrentSellPictures(sellPictures);
+      setCurrentSellPictures(mainPictures);
     }
-  }, [isMobile]);
+    }, [isMobile, mainPictures, mainPicturesMobile]);
+
+// <Header headerType="main_header header__type_main" isMain={true} />
 
   return (
     <>
-      <Header headerType="main_header header__type_main" isMain={true} />
+      
       <Carousel>
         {currentSellPictures.map((item) => (
           <CarouselItem key={item.pictureId} image={item.image}>
@@ -82,7 +110,7 @@ const Carousel: React.FC<carouselProps> = ({ children }) => {
   const [rightButtonIsVisible, setRightButtonIsVisible] = React.useState(true);
 
   useEffect(() => {
-    if (counter >= sellPictures.length - 1 || !rightButtonIsVisible) {
+    if (counter >= React.Children.count(children) - 1 || !rightButtonIsVisible) {
       return;
     } else {
       const interval = setInterval(() => {
@@ -182,3 +210,6 @@ const Carousel: React.FC<carouselProps> = ({ children }) => {
 };
 
 export default Carousel;
+
+
+// export const CarouselBox: React.FC<{}> = () => {

@@ -1,17 +1,26 @@
 import React from "react";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 import phoneIcon from "../../images/phone_new.png";
 import emailIcon from "../../images/email.png";
 import instaIcon from "../../images/insta.png";
+
+//<a className="footer__contacts" href="/contacts">
+//            Контакты
+//          </a>
 
 const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
         <ul className="footer__contacts">
-          <a className="footer__contacts" href="/contacts">
+          <Link
+            to="/contacts"
+            className="footer__contacts"
+          >
             Контакты
-          </a>
+          </Link>
+          
           <li className="footer__contactbox">
             <img className="footer__icon" src={phoneIcon} alt="icon phone" />
             <p className="footer__content footer__content_type_contacts">
