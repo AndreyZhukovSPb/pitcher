@@ -5,10 +5,6 @@ import phoneIcon from "../../images/phone_new.png";
 import emailIcon from "../../images/email.png";
 import instaIcon from "../../images/insta.png";
 
-//<a className="footer__contacts" href="/contacts">
-//            Контакты
-//          </a>
-
 const Footer: React.FC = () => {
   return (
     <footer className="footer">

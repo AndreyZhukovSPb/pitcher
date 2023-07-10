@@ -33,31 +33,6 @@ interface carouselBoxProps {
 export const CarouselBox: React.FC<carouselBoxProps> = ({mainPictures, mainPicturesMobile}) => {
   const isMobile = useMediaQuery({ query: `(max-width: 767px)` });
 
-  /*
-  interface MyTypeMainPhoto {
-    pictureId: number;
-    image: string;
-    text_1: string;
-    text_2: string;
-    text_3: string;
-    number: string;
-  }
-  const [mainPictures, setMainPictures] = React.useState<
-    Array<MyTypeMainPhoto>
-    >([]);
-  const [mainPicturesMobile, setMainPicturesMobile] = React.useState<
-    Array<MyTypeMainPhoto>
-    >([]);
-    useEffect(() => {
-    Api.getMainPhoto()
-      .then((res) => {
-        setMainPictures(res.desctopPhoto);
-        setMainPicturesMobile(res.mobilePhoto);
-        console.log(res.istaPhoto.data)
-      })
-  }, []);
-  */ 
-
   const [currentSellPictures, setCurrentSellPictures] = React.useState<
     Array<MyTypeMainPhoto>
     >([]);
@@ -69,8 +44,6 @@ export const CarouselBox: React.FC<carouselBoxProps> = ({mainPictures, mainPictu
       setCurrentSellPictures(mainPictures);
     }
     }, [isMobile, mainPictures, mainPicturesMobile]);
-
-// <Header headerType="main_header header__type_main" isMain={true} />
 
   return (
     <>
@@ -213,3 +186,27 @@ export default Carousel;
 
 
 // export const CarouselBox: React.FC<{}> = () => {
+  /*
+  interface MyTypeMainPhoto {
+    pictureId: number;
+    image: string;
+    text_1: string;
+    text_2: string;
+    text_3: string;
+    number: string;
+  }
+  const [mainPictures, setMainPictures] = React.useState<
+    Array<MyTypeMainPhoto>
+    >([]);
+  const [mainPicturesMobile, setMainPicturesMobile] = React.useState<
+    Array<MyTypeMainPhoto>
+    >([]);
+    useEffect(() => {
+    Api.getMainPhoto()
+      .then((res) => {
+        setMainPictures(res.desctopPhoto);
+        setMainPicturesMobile(res.mobilePhoto);
+        console.log(res.istaPhoto.data)
+      })
+  }, []);
+  */ 
