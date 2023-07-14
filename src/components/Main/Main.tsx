@@ -4,7 +4,6 @@ import Stores from "../Stores/Stores";
 import About from "../About/About";
 import Portfolio from "../Portfolio/Portfolio";
 import SectionLine from "../SectionLine/SectionLine";
-import Header from "../Header/Header";
 import { MyTypeMainPhoto, MyTypeInstaPhoto } from "../SharedTypes/SharedTypes";
 import Api from "../../utils/MainApi";
 
@@ -21,11 +20,18 @@ const Main: React.FC = () => {
     []
   );
 
+  const [storesPictures, setStoresPictures] = React.useState<Array<string>>([]);
+  
+  const [aboutTexts, setAboutTexts] = React.useState<{}>({});
+
   useEffect(() => {
     Api.getMainPhoto().then((res) => {
-      setMainPictures(res.desctopPhoto);
-      setMainPicturesMobile(res.mobilePhoto);
-      setInstaPhoto(res.istaPhoto.data);
+      console.log(res)
+      setMainPictures(res.sellPictures.desctopPhoto);
+      setMainPicturesMobile(res.sellPictures.mobilePhoto);
+      setInstaPhoto(res.instaPhoto.data);
+      setStoresPictures(res.storesPictures);
+      setAboutTexts(res.aboutTexts)
     });
   }, []);
 
@@ -35,8 +41,12 @@ const Main: React.FC = () => {
         mainPictures={mainPictures}
         mainPicturesMobile={mainPicturesMobile}
       />
-      <Stores />
-      <About />
+      <Stores 
+        storesPictures={storesPictures}
+      />
+      <About 
+        aboutTexts={aboutTexts}
+      />
       <Portfolio instaPhoto={instaPhoto} />
       <SectionLine isMain={true} />
     </>

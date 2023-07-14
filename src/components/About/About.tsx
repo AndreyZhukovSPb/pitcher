@@ -4,9 +4,13 @@ import icon_coffee from '../../images/icon_coffee.png';
 import icon_ninja from '../../images/icon_ninja.png';
 import icon_trust from '../../images/icon_trust.png';
 import { useMediaQuery } from 'react-responsive';
-import { aboutTexts } from '../../utils/constants'
+// import { aboutTexts } from '../../utils/constants'
 
-const About: React.FC = () => {
+interface AboutProps {
+  [key: string]: any
+}
+
+const About: React.FC<AboutProps> = ({ aboutTexts }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 589px)` });
 
   return (

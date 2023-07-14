@@ -24,6 +24,15 @@ class Api {
     })
     .then(this._getJsonOrError)
   }
+
+  getMayakPictures() {
+    return fetch(`${this._baseUrl}/mayak`, {
+      method: 'GET',
+      headers: this._getHeaders()
+    })
+    .then(this._getJsonOrError)
+  }
+
   
   /* 
   sendMovie (movie, currentUser) {

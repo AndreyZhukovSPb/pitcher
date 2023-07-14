@@ -22,6 +22,7 @@ import {
 } from "../../utils/constants";
 import SectionLine from "../SectionLine/SectionLine";
 import Team from "../Team/Team";
+import Api from "../../utils/MainApi";
 import { useMediaQuery } from "react-responsive";
 import { MyTypeImage } from "../SharedTypes/SharedTypes"
 
@@ -82,6 +83,30 @@ const Coffeeshop: React.FC<coffeeshopProps> = ({ isPark, isMayak }) => {
   function setSizeData(data: MyTypeSizeData) {
     setCurrentSizeData(data);
   }
+
+  useEffect(() => {
+    Api.getMayakPictures().then((res) => {
+      console.log(res)
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) {
+      setSizeData({ itemsToShow: 16, columnsToShow: 6, currentGap: 6 });
+      if (isMayak) {
+        setCoffeeShopData(mayakImages, dataMayak);
+      } else if (isPark) {
+        setCoffeeShopData(parkImages, dataPark);
+      }
+    } else {
+      setSizeData({ itemsToShow: 7, columnsToShow: 12, currentGap: 3 });
+      if (isMayak) {
+        setCoffeeShopData(mayakImagesMobile, dataMayak);
+      } else if (isPark) {
+        setCoffeeShopData(parkImagesMobile, dataPark);
+      }
+    }
+  }, [isMobile, isPark, isMayak]);
 
   useEffect(() => {
     if (!isMobile) {

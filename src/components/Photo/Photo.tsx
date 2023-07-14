@@ -15,7 +15,6 @@ const Photo: React.FC<photoProps> = ({
   videoImage,
 }) => {
   function onClick(link: string) {
-    console.log(link);
     window.open(link, "_blank");
   }
 

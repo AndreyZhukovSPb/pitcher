@@ -25,18 +25,41 @@ interface MyTypeMainPhoto {
 
 interface MyTypeInstaPhoto {
   id: string;
-    media_type: string;
-    media_url: string;
-    caption: string;
-    timestamp: string;
-    permalink: string;
-    thumbnail_url?: string;
+  media_type: string;
+  media_url: string;
+  caption: string;
+  timestamp: string;
+  permalink: string;
+  thumbnail_url?: string;
 }
 
 export type { 
   MyTypeImage, 
   MyTypeTeam, 
   MyTypeMainPhoto,
-  MyTypeInstaPhoto
+  MyTypeInstaPhoto,
 }
+
+/*
+interface MyAboutTexts {
+    "p_1_1_desctop": string,
+    "p_1_1_mobile": string,
+    "p_1_2_desctop": string,
+    "p_1_2_mobile": string,
+    "p_1_3_desctop": string,
+    "p_1_4_desctop": string,
+    "p_2_1_desctop": string,
+    "p_2_1_mobile": string,
+    "p_2_2_desctop": string,
+    "p_2_2_mobile": string,
+    "p_2_3_desctop": string,
+    "p_2_4_desctop": string,
+    "p_3_1_desctop": string,
+    "p_3_1_mobile": string,
+    "p_3_2_desctop": string,
+    "p_3_2_mobile": string,
+    "p_3_3_desctop": string,
+    "p_3_4_desctop": string
+}
+*/
 
